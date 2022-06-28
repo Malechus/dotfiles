@@ -166,7 +166,6 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open default three workspaces on correct outputs
-exec --no-startup-id xrandr --output HDMI-A-0 --primary --output DisplayPort-1 --right-of HDMI-A-0 --output DisplayPort-2 --left-of HDMI-A-0
 workspace $ws1 output DisplayPort-2
 workspace $ws2 output HDMI-A-0
 workspace $ws3 output DisplayPort-1
@@ -258,7 +257,6 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -268,6 +266,8 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id /home/malechus/.screenlayout/default.sh
+exec_always --no-startup-id picom -b
+exec --no-startup-id nitrogen --restore
 
 # Color palette used for the terminal ( ~/.Xresources file )
 set_from_resource $term_background background
@@ -293,22 +293,22 @@ set_from_resource $term_color15    color15
 bar {
 	i3bar_command i3bar
 	status_command i3status
-	position bottom
+	position top
 	tray_output primary
 	bindsym button4 nop
 	bindsym button5 nop
 
     colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+        background $term_background
+        statusline $term_foreground
+        separator  $term_color4
 
 #                          border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+        focused_workspace  #F9FAF9 $term_color1 $term_foreground
+        active_workspace   #595B5B $term_color4 $term_foreground
+        inactive_workspace #595B5B #222D31 $term_foreground
+        binding_mode       #16a085 #2C2C2C $term_foreground
+        urgent_workspace   #16a085 #FDF6E3 $term_foreground
     }
 }
 
