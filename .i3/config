@@ -55,6 +55,7 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+Ctrl+j exec --no-startup-id idea
 
 # Set the mouse behavior
 focus_follows_mouse no
@@ -167,8 +168,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open default three workspaces on correct outputs
 workspace $ws1 output DisplayPort-2
-workspace $ws2 output HDMI-A-0
-workspace $ws3 output DisplayPort-1
+workspace $ws2 output DisplayPort-1
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -265,7 +265,7 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id /home/malechus/.screenlayout/default.sh
+exec_always --no-startup-id /home/malechus/.screenlayout/twoscreen.sh
 exec_always --no-startup-id picom -b
 exec --no-startup-id nitrogen --restore
 

@@ -136,5 +136,9 @@ ex ()
   fi
 }
 
+if [ -f ~/.bash_alias ]; then
+	. ~/.bash_alias
+fi
+
 neofetch
 
