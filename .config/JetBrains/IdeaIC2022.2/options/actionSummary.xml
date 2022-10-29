@@ -1,0 +1,70 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="$Delete">
+      <i c="5" l="1666061558324" />
+    </e>
+    <e n="$Undo">
+      <i c="4" l="1666061699562" />
+    </e>
+    <e n="BraceOrQuoteOut">
+      <i c="3" l="1666061694744" />
+    </e>
+    <e n="CloseProject">
+      <i c="3" l="1666059837178" />
+    </e>
+    <e n="EditorBackSpace">
+      <i c="293" l="1666061656362" />
+    </e>
+    <e n="EditorChooseLookupItem">
+      <i c="4" l="1666061692578" />
+    </e>
+    <e n="EditorChooseLookupItemReplace">
+      <i c="2" l="1666061650493" />
+    </e>
+    <e n="EditorDelete">
+      <i c="1" l="1663879241189" />
+    </e>
+    <e n="EditorDown">
+      <i c="1" l="1666061687687" />
+    </e>
+    <e n="EditorEnter">
+      <i c="77" l="1666061701581" />
+    </e>
+    <e n="EditorLeft">
+      <i c="3" l="1663878604369" />
+    </e>
+    <e n="EditorRight">
+      <i c="1" l="1666061657398" />
+    </e>
+    <e n="EditorTab">
+      <i c="21" l="1666061655268" />
+    </e>
+    <e n="EditorUp">
+      <i c="3" l="1663877044816" />
+    </e>
+    <e n="NewClass">
+      <i c="12" l="1666061637633" />
+    </e>
+    <e n="NewDir">
+      <i c="11" l="1666061565529" />
+    </e>
+    <e n="NewFile">
+      <i c="1" l="1663871509777" />
+    </e>
+    <e n="NewHtmlFile">
+      <i c="1" l="1663877171793" />
+    </e>
+    <e n="NewModuleInGroup">
+      <i c="1" l="1666062081170" />
+    </e>
+    <e n="SaveAll">
+      <i c="1" l="1663878987732" />
+    </e>
+    <e n="WelcomeScreen.CreateNewProject">
+      <i c="3" l="1663871333478" />
+    </e>
+    <e n="com.intellij.ui.dsl.builder.impl.SegmentedButtonAction">
+      <i c="1" l="1666062110915" />
+    </e>
+  </component>
+</application>

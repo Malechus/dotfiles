@@ -20,40 +20,40 @@ XTerm*selectToClipboard: true
 *pointerColorBackground:          #2B2C2B
 *pointerColorForeground:          #16A085
 
-*background: #1E1E2E
-*foreground: #D9E0EE
+*background: #180A23
+*foreground: #F7FADE
 
 ! Gray
-*color0: #6E6C7E
-*color8: #988BA2
+*color0: #B7B29C
+*color8: #645354
 
 ! Red
-*color1: #F28FAD
-*color9: #F28FAD
+*color1: #912E1C
+*color9: #5D2128
 
 ! Green
-*color2: #ABE9B3
-*color10: #ABE9B3
+*color2: #6B8D62
+*color10: #6B8D62
 
 ! Yellow
-*color3: #FAE3B0
-*color11:  #FAE3B0
+*color3: #E29F23
+*color11:  #E29F23
 
 ! Blue
-*color4: #96CDFB
-*color12: #96CDFB
+*color4: #2E1D4F
+*color12: #190D31
 
 ! Maguve
-*color5: #DDB6F2
-*color13: #DDB6F2
+*color5: #190D31
+*color13: #2E1D4F
 
 ! Pink
-*color6: #F5C2E7
-*color14: #F5C2E7
+*color6: #96584F
+*color14: #673148
 
 ! Whites
-*color7: #C3BAC6
-*color15: #D9E0EE
+*color7: #F7FADE
+*color15: #F7FADE
 
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
@@ -66,12 +66,12 @@ URxvt.font:                       xft:TerminessTTFNerdFontMono:size=13:antialias
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
+!URxvt.background:                 [100]#222D31
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
+!URxvt*background:                 black
+!URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
@@ -235,3 +235,41 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! -xos4-terminus-bold-r-normal--24-240-72-72-c-120-iso10646-1
 ! -xos4-terminus-bold-r-normal--28-280-72-72-c-140-iso10646-1
 ! -xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1
+!
+! Color theme self generated
+!
+URxvt.background: #25142A
+URxvt.foreground: #EDE3B1
+URxvt.cursorColor: #AF5433
+
+! black
+URxvt.color0: #160C1C
+URxvt.color8: #181023
+
+! red
+URxvt.color1: #5D2128
+URxvt.color9: #AF5433
+
+! green
+URxvt.color2: #6B8D62
+URxvt.color10: #6B8D62
+
+! yellow
+URxvt.color3: #E8BB48
+URxvt.color11: #AF5433
+
+! blue
+URxvt.color4: #452D4B
+URxvt.color12: #25142A
+
+! magenta
+URxvt.color5: #452D4B
+URxvt.color13: #452D4B
+
+! cyan
+URxvt.color6: #6B8D62
+URxvt.color14: #6B8D62
+
+! white
+URxvt.color7: #EDE3B1
+URxvt.color15: #EDE3B1

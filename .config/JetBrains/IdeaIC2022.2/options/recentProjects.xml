@@ -1,0 +1,36 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/source/repos/LegAPI">
+          <value>
+            <RecentProjectMetaInfo frameTitle="LegAPI – Term.java" projectWorkspaceId="2F8QitMIYwA48bvSkXkRoos41Er">
+              <option name="activationTimestamp" value="1666059812348" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IC-221.6008.13" />
+              <option name="buildTimestamp" value="1658267280567" />
+              <frame x="-2" y="27" width="1924" height="1055" />
+              <option name="productionCode" value="IC" />
+              <option name="projectOpenTimestamp" value="1663871361798" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/source/repos/RemindMeSomeday">
+          <value>
+            <RecentProjectMetaInfo frameTitle="RemindMeSomeday – pom.xml (twitter-api-java-sdk)" opened="true" projectWorkspaceId="2DzikEI3GS1du2vXdvIYusHAvnA">
+              <option name="activationTimestamp" value="1666062309886" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IC-222.4167.29" />
+              <option name="buildTimestamp" value="1663316429250" />
+              <frame x="-2" y="27" width="1924" height="1055" />
+              <option name="productionCode" value="IC" />
+              <option name="projectOpenTimestamp" value="1666060701020" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastOpenedProject" value="$USER_HOME$/source/repos/RemindMeSomeday" />
+    <option name="lastProjectLocation" value="$USER_HOME$/source/repos" />
+  </component>
+</application>

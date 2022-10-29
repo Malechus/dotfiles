@@ -95,6 +95,18 @@ unset use_color safe_term match_lhs sh
 #alias free='free -m'                      # show sizes in MB
 #alias np='nano -w PKGBUILD'
 #alias more=less
+alias bedtime="shutdown now"
+alias me=whoami
+#alias ls="ls -A --color"
+alias upgrade="pacman -Syu"
+alias please="sudo"
+alias find="pacman -Ss"
+alias grab="pacman -S"
+alias ..="cd .."
+alias ~="cd ~"
+alias dl="wget -O /dev/null"
+alias update="pacman -Syu"
+alias FUCK="sudo !!"
 
 xhost +local:root > /dev/null 2>&1
 
@@ -139,6 +151,8 @@ ex ()
 if [ -f ~/.bash_alias ]; then
 	. ~/.bash_alias
 fi
+
+source /usr/share/doc/pkgfile/command-not-found.bash
 
 neofetch
 

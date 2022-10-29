@@ -166,10 +166,6 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# Open default three workspaces on correct outputs
-workspace $ws1 output DisplayPort-2
-workspace $ws2 output DisplayPort-1
-
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
@@ -265,7 +261,7 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id /home/malechus/.screenlayout/twoscreen.sh
+exec_always --no-startup-id /home/malechus/.screenlayout/three-direct.sh
 exec_always --no-startup-id picom -b
 exec --no-startup-id nitrogen --restore
 
@@ -304,11 +300,11 @@ bar {
         separator  $term_color4
 
 #                          border  backgr. text
-        focused_workspace  #F9FAF9 $term_color1 $term_foreground
-        active_workspace   #595B5B $term_color4 $term_foreground
-        inactive_workspace #595B5B #222D31 $term_foreground
-        binding_mode       #16a085 #2C2C2C $term_foreground
-        urgent_workspace   #16a085 #FDF6E3 $term_foreground
+        focused_workspace  $term_color0 $term_color1 $term_foreground
+        active_workspace   $term_color0 $term_color4 $term_foreground
+        inactive_workspace $term_color0 $term_background $term_foreground
+        binding_mode       $term_color0 $term_background $term_foreground
+        urgent_workspace   $term_color0 $term_background $term_foreground
     }
 }
 

@@ -1,0 +1,19 @@
+mouse: true
+messages_limit: 50
+timestamps: false
+timezone: Local
+time_format: 3:04PM
+keys:
+    messages_panel:
+        open_actions_list: Rune[a]
+        select_previous_message: Up
+        select_next_message: Down
+        select_first_message: Home
+        select_last_message: End
+    message_input:
+        open_external_editor: ""
+        paste_clipboard: ""
+theme:
+    background: default
+    border: white
+    title: white
