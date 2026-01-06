@@ -1,6 +1,6 @@
 # dotfiles
 
-Simple configs for my main PC running Manjaro i3.
+using stow
+guide https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
 
-Themes used throughout come from [Catppuccin](https://github.com/catppuccin), but these have mostly been commented out or removed in favor of custom color scheming. 
 
