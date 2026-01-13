@@ -30,5 +30,4 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 # Network Vars
-export kicprod=66.228.34.152
 export fangprod=104.237.144.235
