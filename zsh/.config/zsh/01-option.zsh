@@ -10,3 +10,5 @@ setopt appendhistory			# Append history instead of overwriting
 setopt histignorealldups		# Ignore duplicates in history
 setopt autocd				# Automatically cd into dir if cd command not given and input does not match a command but does match a dir
 setopt histignorespace			# Don't save commands that begin with a space
+
+bindkey -v
