@@ -18,9 +18,6 @@ export XDG_CACHE_HOME="$HOME"/.local/cache
 export XDG_STATE_HOME="$HOME"/.local/state
 export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:=/tmp}"
 
-# ASPNET Vars
-export ASPNETCORE_ENVIRONMENT=Development
-
 # zsh Vars
 if [[ -z "$ZDOTDIR" ]] then
 	export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
