@@ -1,0 +1,2 @@
+# Ignore contents of the plugin dir, as this contains other repos, and we don't want to include them as submodules.
+zsh/.config/zsh/plugins/*
