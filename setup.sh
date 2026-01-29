@@ -8,17 +8,17 @@ fi
 
 #Check for and create XDG path
 echo "Setting up environment variables...."
-if [[ ! -d "$XDG_CONFIG_HOME" ]] then
+if [[ ! -d "$XDG_CONFIG_HOME" ]]; then
 	XDG_CONFIG_HOME="$HOME/.config"
 fi
 
-if [[ ! -d "$ZDOTDIR" ]] then
+if [[ ! -d "$ZDOTDIR" ]]; then
 	ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 fi
 
 #Clone zsh plugins 
 echo "Installing zsh plugins...."
-if [[ ! -d "$ZDOTDIR/plugins" ]] then
+if [[ ! -d "$ZDOTDIR/plugins" ]]; then
 	mkdir "$ZDOTDIR/plugins"
 fi
 
@@ -31,8 +31,26 @@ git clone https://github.com/zsh-users/zsh-history-substring-search.git "$ZDOTDI
 
 #Install stow if not installed
 echo "Installing stow."
-if [[ ! command -v stow ]] then
-	sudo apt install stow -y
+if [[ ! command -v stow ]]; then
+	case $OSTYPE in
+
+		linux*)
+			OS=hostnamectl | grep "System" &> /dev/null;
+	
+			if [[ $OS == *"Ubuntu"* ]]; then
+				sudo apt install stow -y
+			else 
+				echo "Please install stow using your preferred package manager."
+			fi
+			;;
+
+		darwin*)
+			brew install stow
+			;;
+
+		*)
+			echo "Please install stow using your preferred package manager."
+	esac
 fi
 
 
