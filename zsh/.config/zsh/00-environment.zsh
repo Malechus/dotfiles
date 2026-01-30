@@ -26,5 +26,8 @@ HISTFILE="$ZDOTDIR"/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-# Network Vars
+# Network Vars (shorthand IP addr not handled by DNS)
 export fangprod=104.237.144.235
+
+# Other vars
+export DEV_HOME="$HOME"/source/repos
