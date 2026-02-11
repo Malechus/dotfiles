@@ -7,6 +7,6 @@
 
 # Last lines to be loaded before startup
 
-if [[ command -v neofetch >/dev/null 2>&1 ]];; then
+if command -v neofetch >/dev/null 2>&1; then
 	neofetch
 fi
