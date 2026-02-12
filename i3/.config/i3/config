@@ -1,0 +1,26 @@
+#    .__________                        _____.__        
+#    |__\_____  \    ____  ____   _____/ ____\__| ____  
+#    |  | _(__  <  _/ ___\/  _ \ /    \   __\|  |/ ___\ 
+#    |  |/       \ \  \__(  <_> )   |  \  |  |  / /_/  >
+#    |__/______  /  \___  >____/|___|  /__|  |__\___  / 
+#              \/       \/           \/        /_____/ 
+
+
+# Set variables, which must be done in the parent file for i3.
+
+set $mod Mod4
+
+set $ws1 "1: Main"
+set $ws2 "2: Task"
+set $ws3 "3: Comm"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Import additional configurations.
+
+include $HOME/.config/i3/*-i3.conf
