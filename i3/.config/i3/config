@@ -10,9 +10,9 @@
 
 set $mod Mod4
 
-set $ws1 "1: Main"
-set $ws2 "2: Task"
-set $ws3 "3: Comm"
+set $ws1 "1: Main"
+set $ws2 "2: Task"
+set $ws3 "3: Comm"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"

@@ -1,0 +1,11 @@
+
+
+
+
+
+
+import = [
+	#Theme
+	"~/.config/alacritty/00-theme.toml",
+#	"~/.config/alacritty/01-window.toml",
+]
