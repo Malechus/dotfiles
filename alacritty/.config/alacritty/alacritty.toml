@@ -4,8 +4,8 @@
 
 
 
-import = [
+general.import = [
 	#Theme
-	"~/.config/alacritty/00-theme.toml",
-#	"~/.config/alacritty/01-window.toml",
+	"~/.config/alacritty/00-catpuccin-macchiato.toml",
+	"~/.config/alacritty/01-window.toml",
 ]
