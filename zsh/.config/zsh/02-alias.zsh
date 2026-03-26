@@ -21,4 +21,4 @@ alias paths='echo -e ${PATH//:/\\n}'
 
 alias please='sudo !!'
 
-
+alias copilot='copilot --allow-tool=read'
