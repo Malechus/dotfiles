@@ -3,12 +3,12 @@
 
 
 [window]
-decorations = "None"
+#decorations = "None"
 
 opacity = 0.8
 
 title = "Console"
 
-#decorations_theme_variant = "Dark"
+decorations_theme_variant = "Dark"
 
 
