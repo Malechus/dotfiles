@@ -11,3 +11,7 @@ general.import = [
 	"~/.config/alacritty/02-keybindings.toml",
 	"~/.config/alacritty/03-font.toml"
 ]
+
+[debug]
+
+log_level = "Error"
