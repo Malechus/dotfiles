@@ -2,3 +2,6 @@
 zsh/.config/zsh/plugins/*
 zsh/.config/zsh/.histfile
 zsh/.config/zsh/.zcompdump
+
+# Ignore GitHub-specific files (Copilot instructions, workflows, etc.) — not part of the stow packages.
+.github/
