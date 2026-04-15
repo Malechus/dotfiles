@@ -183,7 +183,9 @@ malechus@hostname
 
 ### Rofi — Application Launcher
 
-Configured at `~/.config/rofi/config.rasi`. Currently uses default Rofi settings with file browser sorted by name, directories first.
+Configured at `~/.config/rofi/config.rasi`. 
+
+Feature rich replacement for dmenu, themed with Catppuccin-machiatto.
 
 ---
 
