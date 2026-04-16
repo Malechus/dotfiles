@@ -232,6 +232,7 @@ This setup is built on the work of many open source authors and projects.
 | [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) | zdharma-continuum (originally z-shell) | BSD |
 | [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search) | zsh-users | BSD |
 | [Nerd Fonts](https://www.nerdfonts.com/) (Hurmit, CaskaydiaCove) | Ryan L McIntyre (ryanoasis) | MIT |
+| [Spotify-Player](https://github.com/aome510/spotify-player) | aome510 | MIT |
 
 ---
 
