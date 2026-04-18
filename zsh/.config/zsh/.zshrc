@@ -6,3 +6,5 @@
 #     \/       \/     \/     \/            \/ 
 
 for config (~/.config/zsh/*.zsh) source $config
+
+source ~/.config/zsh/.zprofile
