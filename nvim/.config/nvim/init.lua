@@ -1,13 +1,19 @@
-vim.pack.add({
-	{
-		src = 'https://github.com/JavaHello/spring-boot.nvim',
-		version = '218c0c26c14d99feca778e4d13f5ec3e8b1b60f0',
-	},
-	'https://github.com/MunifTanjim/nui.nvim',
-	'https://github.com/mfussenegger/nvim-dap',
+local vim = vim
+local Plug = vim.fn['plug#']
 
-	'https://github.com/nvim-java/nvim-java',
+vim.call('plug#begin')
+
+Plug('catppuccin/nvim', { ['as'] = 'catppuccin' })
+
+vim.call('plug#end')
+
+require("catppuccin").setup({
+	flavour = "macchiato",
+	transparent_background = true,
+        styles = {
+           sidebars = "transparent",
+           floats = "transparent",
+        },
 })
 
-require('java').setup()
-vim.lsp.enable('jdtls')
+vim.cmd.colorscheme "catppuccin"
