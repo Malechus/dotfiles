@@ -9,3 +9,9 @@ zsh/.config/zsh/.zcompdump
 # Ignore log files
 *.log
 */*.log
+
+# Ignore some things I don't want getting pulled down on my work computer, find them in the NSFW branch
+*pinup.*
+*/*pinup.*
+*pinup*
+
