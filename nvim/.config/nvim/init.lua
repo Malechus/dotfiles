@@ -5,6 +5,9 @@ local Plug = vim.fn['plug#']
 vim.g.loaded_netrw 		= 1
 vim.g.loaded_netrwPlugin 	= 1
 
+-- Enable relative line numbers
+vim.wo.relativenumber = true
+
 -- Install Plugins
 vim.call('plug#begin')
 
@@ -28,6 +31,17 @@ require("catppuccin").setup({
            sidebars = "transparent",
            floats = "transparent",
         },
+	integrations = {
+		nvimtree = true
+	},
+	-- This is to make line numbers visible on lighter backgrounds with transparency
+	highlight_overrides = {
+		macchiato = function(macchiato)
+			return {
+				LineNr = { fg = macchiato.overlay1 }
+			}
+		end
+	}
 })
 
 require("nvim-tree").setup () 
