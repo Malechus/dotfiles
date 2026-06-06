@@ -58,7 +58,7 @@ All tools use the **[Catppuccin Macchiato](https://github.com/catppuccin/catppuc
 - **UI / i3 bar:** Hurmit Nerd Font Regular 14pt
 - **Terminal:** CaskaydiaCove Nerd Font Mono Regular
 
-**WallPapers**
+**WallPapers**  
 Wallpapers are located within the i3 directory, along with some helper scripts for setting wallpapers under various conditions (usually based on number of active screens.)
 Some wallpapers and scripts are not included in the main branch, but can be found on the `nsfw` branch. Nothing in it is graphic, but I don't want them getting pulled to my work computer.
 
