@@ -1,0 +1,5 @@
+# Sourced by display managers (SDDM, GDM, etc.) before the X session starts.
+# Use this to set environment variables that should be available to i3 and all
+# child processes, since ~/.bashrc and ~/.zshrc are not sourced in this context.
+
+export PATH="$HOME/.local/bin:$PATH"
