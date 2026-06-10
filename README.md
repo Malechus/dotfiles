@@ -16,7 +16,7 @@ cd ~/dotfiles
 stow alacritty
 
 # Install everything
-stow alacritty fastfetch i3 nvim picom rofi zsh
+stow alacritty fastfetch i3 nvim picom rofi x11 zsh
 ```
 
 Each top-level directory is a stow package. Its internal structure mirrors `$HOME`, so `alacritty/.config/alacritty/alacritty.toml` gets linked to `~/.config/alacritty/alacritty.toml`.
@@ -59,7 +59,16 @@ All tools use the **[Catppuccin Macchiato](https://github.com/catppuccin/catppuc
 - **Terminal:** CaskaydiaCove Nerd Font Mono Regular
 
 **WallPapers**  
-Wallpapers are located within the i3 directory, along with some helper scripts for setting wallpapers under various conditions (usually based on number of active screens.)
+Wallpapers are located within the i3 directory (`i3/.config/i3/walls/`). Helper scripts live in `i3/.local/bin/` and are linked into `~/.local/bin/` by the i3 stow package:
+
+| Script | Purpose |
+|---|---|
+| `4.sh` | Configure xrandr for a 4-monitor layout |
+| `bottom.sh` | Configure xrandr for a 3-monitor layout (hostname-gated to `polyphemus`) |
+| `personal.sh` | Run `4.sh` and set 4-monitor wallpapers |
+| `work.sh` | Run `bottom.sh` and set 3-monitor wallpapers |
+| `wallswitcher.sh` | Cycle through named wallpaper presets using `feh`; bound to `Super+Shift+W` |
+
 Some wallpapers and scripts are not included in the main branch, but can be found on the `nsfw` branch. Nothing in it is graphic, but I don't want them getting pulled to my work computer.
 
 ---
@@ -77,6 +86,7 @@ Tiling window manager for X11. The modifier key is `Super` (Windows key).
 | Open terminal | `Super+Enter` |
 | Launch dmenu | `Super+D` |
 | Kill window | `Super+Shift+Q` |
+| Toggle wallpaper preset | `Super+Shift+W` |
 | Enter resize mode | `Super+R` |
 | Toggle floating | `Super+Shift+Space` |
 | Reload config | `Super+Shift+C` |
@@ -197,6 +207,16 @@ malechus@hostname
 
 ---
 
+### x11 — X Session Environment
+
+Provides `~/.xprofile`, which is sourced by display managers (SDDM, GDM, LightDM) before starting the X session. This is the correct place for environment variables that must be available to i3 and all processes it spawns — notably `PATH` — because `.bashrc` and `.zshrc` are not sourced in that context.
+
+| Variable | Value |
+|---|---|
+| `PATH` | Prepends `~/.local/bin` so user scripts are available to i3 `exec` bindings |
+
+---
+
 ### Neovim — Text Editor
 
 Uses Neovim's built-in package manager (`vim.pack`, available in Neovim 0.11+) to manage plugins for Java development.
@@ -253,6 +273,7 @@ This setup is built on the work of many open source authors and projects.
 
 | Project | Author(s) | License |
 |---|---|---|
+| [feh](https://feh.finalrewind.org/) | Tom Gilbert & contributors | MIT |
 | [GNU Stow](https://www.gnu.org/software/stow/) | GNU Project | GPL-3.0 |
 | [i3](https://i3wm.org/) | Michael Stapelberg & contributors | BSD |
 | [Picom](https://github.com/yshui/picom) | yshui (fork of compton by chjj) | MIT / Apache-2.0 |
@@ -280,10 +301,11 @@ This setup is built on the work of many open source authors and projects.
 dotfiles/
 ├── alacritty/    # Terminal emulator config
 ├── fastfetch/    # System info display config
-├── i3/           # i3 window manager config + bar scripts + wallpapers
+├── i3/           # i3 window manager config + bar scripts + wallpapers + ~/.local/bin scripts
 ├── nvim/         # Neovim config (Java development)
 ├── picom/        # Compositor config
 ├── rofi/         # App launcher config
+├── x11/          # X11 session environment (.xprofile)
 ├── yabai/        # macOS tiling WM config
 └── zsh/          # ZSH shell config + plugins (plugins gitignored)
 ```
