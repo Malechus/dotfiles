@@ -219,18 +219,17 @@ Provides `~/.xprofile`, which is sourced by display managers (SDDM, GDM, LightDM
 
 ### Neovim — Text Editor
 
-Uses Neovim's built-in package manager (`vim.pack`, available in Neovim 0.11+) to manage plugins for Java development.
+Uses [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
 
 **Plugins**
 
 | Plugin | Purpose |
 |---|---|
-| [nvim-java](https://github.com/nvim-java/nvim-java) | Full Java IDE experience (test runner, DAP, refactoring) |
-| [spring-boot.nvim](https://github.com/JavaHello/spring-boot.nvim) | Spring Boot project support |
-| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Debug Adapter Protocol client |
-| [nui.nvim](https://github.com/MunifTanjim/nui.nvim) | UI component library (dependency) |
-
-The `jdtls` LSP server is enabled via `vim.lsp.enable('jdtls')` for Java language intelligence.
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto-close brackets, quotes, and other pairs |
+| [catppuccin/nvim](https://github.com/catppuccin/nvim) | Catppuccin Macchiato color scheme with nvim-tree integration |
+| [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | File type icons (dependency for nvim-tree) |
+| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | File explorer sidebar |
+| [line-numbers.nvim](https://github.com/shrynx/line-numbers.nvim) | Combined relative and absolute line numbers |
 
 ---
 
@@ -288,10 +287,12 @@ This setup is built on the work of many open source authors and projects.
 | [Nerd Fonts](https://www.nerdfonts.com/) (Hurmit, CaskaydiaCove) | Ryan L McIntyre (ryanoasis) | MIT |
 | [Spotify-Player](https://github.com/aome510/spotify-player) | aome510 | MIT |
 | [Neovim](https://neovim.io/) | Neovim contributors | Apache-2.0 |
-| [nvim-java](https://github.com/nvim-java/nvim-java) | nvim-java contributors | Apache-2.0 |
-| [spring-boot.nvim](https://github.com/JavaHello/spring-boot.nvim) | JavaHello | MIT |
-| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Mfussenegger | GPL-3.0 |
-| [nui.nvim](https://github.com/MunifTanjim/nui.nvim) | MunifTanjim | MIT |
+| [vim-plug](https://github.com/junegunn/vim-plug) | Junegunn Choi | MIT |
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | windwp | MIT |
+| [catppuccin/nvim](https://github.com/catppuccin/nvim) | Catppuccin Org | MIT |
+| [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | nvim-tree contributors | MIT |
+| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | Yazdani Kiyan & contributors | GPL-3.0 |
+| [line-numbers.nvim](https://github.com/shrynx/line-numbers.nvim) | shrynx | MIT |
 
 ---
 

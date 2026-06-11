@@ -12,6 +12,8 @@ Plug('nvim-tree/nvim-web-devicons')
 
 Plug('nvim-tree/nvim-tree.lua')
 
+Plug('shrynx/line-numbers.nvim')
+
 vim.call('plug#end')
 
 -- Move config and plugin files to separate locations, for ease of navigation
@@ -21,3 +23,4 @@ require("config.options")
 
 require("plugins.nvim-tree")
 require("plugins.autopair")
+require("plugins.line-numbers")
