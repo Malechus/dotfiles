@@ -22,3 +22,5 @@
 - Never use emojis or symbols. The only valid exceptions are code ligatures and markdown formatted symbols such as check boxes and bullet points.
 - Never push to a VCS repository without explicit permission, even when all tools are allowed. This specifically includes, but is not limited to, `git push` commands.
 - Never ask for passwords or credentials; this specifically includes, but is not limited to, the user's sudo password. If a task requires credentials you have not been given, output explicit instructions for how to complete the task and let the user do it. 
+- Avoid bash and python commands to read/write to files whenever possible, prefer directly reading or writing. 
+- Avoid `2>&1` or redirecting stdout to dev/null - this calls for write permissions that cannot be granted once. Instead, prefer to allow stdout to print in console or dump to a temp file in ~/.cache/copilot/ if the output is not needed. Permissions for these files can be granted once.
