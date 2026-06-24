@@ -4,23 +4,58 @@ local Plug = vim.fn['plug#']
 -- Install Plugins
 vim.call('plug#begin')
 
+-- UI / Theme
+Plug('catppuccin/nvim', { ['as'] = 'catppuccin' })
+Plug('nvim-tree/nvim-web-devicons')
+Plug('nvim-tree/nvim-tree.lua')
+Plug('shrynx/line-numbers.nvim')
+
+-- Editing
 Plug('windwp/nvim-autopairs')
 
-Plug('catppuccin/nvim', { ['as'] = 'catppuccin' })
+-- LSP
+Plug('neovim/nvim-lspconfig')
+Plug('williamboman/mason.nvim')
+Plug('williamboman/mason-lspconfig.nvim')
+Plug('Hoffs/omnisharp-extended-lsp.nvim')
 
-Plug('nvim-tree/nvim-web-devicons')
+-- Completion
+Plug('hrsh7th/nvim-cmp')
+Plug('hrsh7th/cmp-nvim-lsp')
+Plug('hrsh7th/cmp-buffer')
+Plug('hrsh7th/cmp-path')
+Plug('L3MON4D3/LuaSnip')
+Plug('saadparwaiz1/cmp_luasnip')
 
-Plug('nvim-tree/nvim-tree.lua')
+-- Navigation
+Plug('nvim-lua/plenary.nvim')
+Plug('nvim-telescope/telescope.nvim')
 
-Plug('shrynx/line-numbers.nvim')
+-- Syntax
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
+
+-- Debugging
+Plug('mfussenegger/nvim-dap')
+Plug('rcarriga/nvim-dap-ui')
+Plug('nvim-neotest/nvim-nio')
+Plug('jay-babu/mason-nvim-dap.nvim')
 
 vim.call('plug#end')
 
--- Move config and plugin files to separate locations, for ease of navigation
+-- Core config (order matters: options sets leader before mappings read it)
+require("config.options")
 require("config.colors")
 require("config.mapping")
-require("config.options")
 
+-- Plugins
 require("plugins.nvim-tree")
 require("plugins.autopair")
 require("plugins.line-numbers")
+--require("plugins.lsp")
+require("plugins.cmp")
+require("plugins.telescope")
+require("plugins.treesitter")
+require("plugins.dap")
+
+
+vim.lsp.enable('cs.lua')
