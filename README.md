@@ -219,17 +219,57 @@ Provides `~/.xprofile`, which is sourced by display managers (SDDM, GDM, LightDM
 
 ### Neovim — Text Editor
 
-Uses [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
+Uses [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins. Configured for C# development with LSP, completion, fuzzy navigation, and debugging.
 
 **Plugins**
 
 | Plugin | Purpose |
 |---|---|
 | [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto-close brackets, quotes, and other pairs |
-| [catppuccin/nvim](https://github.com/catppuccin/nvim) | Catppuccin Macchiato color scheme with nvim-tree integration |
+| [catppuccin/nvim](https://github.com/catppuccin/nvim) | Catppuccin Macchiato color scheme |
 | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | File type icons (dependency for nvim-tree) |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | File explorer sidebar |
 | [line-numbers.nvim](https://github.com/shrynx/line-numbers.nvim) | Combined relative and absolute line numbers |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP client configuration |
+| [mason.nvim](https://github.com/williamboman/mason.nvim) | Install and manage LSP servers and DAP adapters |
+| [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | Bridge between mason and nvim-lspconfig |
+| [omnisharp-extended-lsp.nvim](https://github.com/Hoffs/omnisharp-extended-lsp.nvim) | Go-to-definition support for decompiled C# sources |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | Completion engine |
+| [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) | LSP completion source for nvim-cmp |
+| [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) | Buffer word completion source |
+| [cmp-path](https://github.com/hrsh7th/cmp-path) | File path completion source |
+| [LuaSnip](https://github.com/L3MON4D3/LuaSnip) | Snippet engine (required by nvim-cmp) |
+| [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) | LuaSnip completion source for nvim-cmp |
+| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Lua utility library (dependency for Telescope) |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder for files, grep, and buffers |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | AST-based syntax highlighting with C# parser |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Debug Adapter Protocol client |
+| [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | UI overlay for DAP (scopes, stacks, watches, breakpoints) |
+| [nvim-nio](https://github.com/nvim-neotest/nvim-nio) | Async I/O library (dependency for nvim-dap-ui) |
+| [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Bridge between mason and nvim-dap |
+
+**Fresh system setup**
+
+1. Install vim-plug:
+   ```sh
+   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+   ```
+2. Install plugins:
+   ```sh
+   nvim +PlugInstall +qall
+   ```
+3. On first nvim launch after PlugInstall, mason will auto-install `omnisharp` and `netcoredbg`. This requires an internet connection and .NET SDK.
+4. Install a C compiler if not present (required by Treesitter to compile parsers):
+   ```sh
+   sudo apt install gcc   # Debian/Ubuntu
+   ```
+5. Install the C# Treesitter parser inside nvim:
+   ```
+   :TSInstall c_sharp
+   ```
+
+For full keybinding reference and C# workflow guidance, see `nvim/.config/nvim/README.md`.
 
 ---
 
@@ -293,6 +333,23 @@ This setup is built on the work of many open source authors and projects.
 | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | nvim-tree contributors | MIT |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | Yazdani Kiyan & contributors | GPL-3.0 |
 | [line-numbers.nvim](https://github.com/shrynx/line-numbers.nvim) | shrynx | MIT |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Neovim contributors | Apache-2.0 |
+| [mason.nvim](https://github.com/williamboman/mason.nvim) | William Boman & contributors | Apache-2.0 |
+| [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | William Boman & contributors | Apache-2.0 |
+| [omnisharp-extended-lsp.nvim](https://github.com/Hoffs/omnisharp-extended-lsp.nvim) | Hoffs | MIT |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | hrsh7th | MIT |
+| [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) | hrsh7th | MIT |
+| [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) | hrsh7th | MIT |
+| [cmp-path](https://github.com/hrsh7th/cmp-path) | hrsh7th | MIT |
+| [LuaSnip](https://github.com/L3MON4D3/LuaSnip) | L3MON4D3 | Apache-2.0 |
+| [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) | saadparwaiz1 | Apache-2.0 |
+| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | TJ DeVries & contributors | MIT |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | TJ DeVries & contributors | MIT |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | nvim-treesitter contributors | Apache-2.0 |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Mathias Fussenegger | GPL-3.0 |
+| [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | rcarriga | MIT |
+| [nvim-nio](https://github.com/nvim-neotest/nvim-nio) | nvim-neotest contributors | MIT |
+| [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Jay Babu & contributors | Apache-2.0 |
 
 ---
 
@@ -303,7 +360,7 @@ dotfiles/
 ├── alacritty/    # Terminal emulator config
 ├── fastfetch/    # System info display config
 ├── i3/           # i3 window manager config + bar scripts + wallpapers + ~/.local/bin scripts
-├── nvim/         # Neovim config (Java development)
+├── nvim/         # Neovim config (C# development)
 ├── picom/        # Compositor config
 ├── rofi/         # App launcher config
 ├── x11/          # X11 session environment (.xprofile)

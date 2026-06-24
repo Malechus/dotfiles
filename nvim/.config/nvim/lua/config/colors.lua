@@ -9,7 +9,12 @@ require("catppuccin").setup({
            floats = "transparent",
         },
 	integrations = {
-		nvimtree = true
+		nvimtree = true,
+		treesitter = true,
+		telescope = { enabled = true },
+		cmp = true,
+		mason = true,
+		dap = { enabled = true, enable_ui = true },
 	},
 	-- This is to make line numbers visible on lighter backgrounds with transparency
 	highlight_overrides = {
