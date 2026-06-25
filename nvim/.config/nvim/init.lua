@@ -18,6 +18,7 @@ Plug('neovim/nvim-lspconfig')
 Plug('williamboman/mason.nvim')
 Plug('williamboman/mason-lspconfig.nvim')
 Plug('Hoffs/omnisharp-extended-lsp.nvim')
+Plug('mfussenegger/nvim-jdtls')
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
@@ -59,3 +60,4 @@ require("plugins.dap")
 
 
 vim.lsp.enable('cs')
+vim.lsp.enable('java')
