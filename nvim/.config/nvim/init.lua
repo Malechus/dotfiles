@@ -52,11 +52,10 @@ require("plugins.nvim-tree")
 require("plugins.autopair")
 require("plugins.line-numbers")
 --require("plugins.lsp")
-require("plugins.after.lsp.cs")
 require("plugins.cmp")
 require("plugins.telescope")
 require("plugins.treesitter")
 require("plugins.dap")
 
 
-vim.lsp.enable('csharp-ls')
+vim.lsp.enable('cs')
