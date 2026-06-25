@@ -58,4 +58,4 @@ require("plugins.treesitter")
 require("plugins.dap")
 
 
-vim.lsp.enable('cs.lua')
+vim.lsp.enable('csharp-ls')
