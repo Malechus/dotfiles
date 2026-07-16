@@ -30,3 +30,12 @@ export DEV_HOME="$HOME"/source/repos
 
 # Path
 export PATH="$HOME/.local/bin:$PATH"
+
+#
+#
+#
+#
+#
+#
+#Run startup scripts
+startup.sh
