@@ -11,13 +11,6 @@
 #       \_/ \__,_|_|  |___/
 # 
 
-#XDG Vars
-export XDG_CONFIG_HOME="$HOME"/.config
-export XDG_DATA_HOME="$HOME"/.local/share
-export XDG_CACHE_HOME="$HOME"/.local/cache
-export XDG_STATE_HOME="$HOME"/.local/state
-export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:=/tmp}"
-
 # zsh Vars
 if [[ -z "$ZDOTDIR" ]] then
 	export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
@@ -25,9 +18,3 @@ fi
 HISTFILE="$ZDOTDIR"/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-
-# Network Vars (shorthand IP addr not handled by DNS)
-export fangprod=104.237.144.235
-
-# Other vars
-export DEV_HOME="$HOME"/source/repos
