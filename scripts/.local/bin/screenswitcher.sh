@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script toggles the screenpapers displayed between any of a number of preconfigured settings. 
+# This script toggles the screen layout displayed between any of a number of preconfigured settings. 
 
 if [ -z "$XDG_CACHE_HOME" ]; then
 	XDG_CACHE_HOME="$HOME/.cache"
