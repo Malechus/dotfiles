@@ -28,18 +28,54 @@ fi
 
 case $currentSetting in 
 
-	four)
+	space)
 		echo "pinup" > $currentSettingFile
-		echo "Setting walls to four at $(date +"%D %T")" >> $currentLogFile
+		echo "Setting walls to pinup at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
 		feh --bg-fill horizontal/phone_pinup.png horizontal/ub_pinup.png vertical/wash_pinup.png vertical/wp_pinup.png --no-fehbg
 		;;
 	
 	base | pinup)
 		echo "four" > $currentSettingFile
-		echo "Setting walls to pinup at $(date +"%D %T")" >> $currentLogFile
+		echo "Setting walls to four at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
 		feh --bg-fill horizontal/flowers-19.jpg horizontal/marin-eat-cat-mac.png vertical/frieren3.png vertical/maomao1.png --no-fehbg
+		;;
+	four)
+		echo "tech" > $currentSettingFile
+		echo "Setting walls to tech at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/blueprint.png horizontal/bacta.png vertical/mech1.png vertical/mech2.png --no-fehbg
+		;;
+	tech)
+		echo "tech2" > $currentSettingFile
+		echo "Setting walls to tech2 at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/old-computer.png horizontal/tux_root.png vertical/mc_hallway.jpg vertical/galaxy.jpg --no-fehbg
+		;;
+	tech2)
+		echo "arch" > $currentSettingFile
+		echo "Setting walls to arch at $(date +"%D %T")" >> $currentSetting
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/arch_windows.png horizontal/catp_arch.png vertical/galaxy.jpg vertical/mc_archi.jpg --no-fehbg
+		;;
+	arch)
+		echo "shadowheart" > $currentSettingFile
+		echo "Setting walls to shadowheart at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/shdwhrt_field.png horizontal/shdwhrt_model.jpg vertical/cosp_shdwhrt_ling.jpg vertical/cosp_shdwhrt_flowers.jpg --no-fehbg
+		;;
+	shadowheart)
+		echo "karlach" > $currentSettingFile
+		echo "Setting walls to karlach at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/karlach_screen.jpg horizontal/karlach_coat.jpg vertical/karlach_portrait.jpg vertical/karlach_strap.jpg --no-fehbg
+		;;
+	karlach)
+		echo "space" > $currentSettingFile
+		echo "Setting walls to space at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/mc_moon.jpg horizontal/mc_moon_crater.jpg vertical/galaxy.jpg vertical/galaxy.jpg --no-fehbg
 		;;
 esac
 
