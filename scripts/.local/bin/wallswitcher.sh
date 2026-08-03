@@ -69,7 +69,7 @@ case $currentSetting in
 		echo "karlach" > $currentSettingFile
 		echo "Setting walls to karlach at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/karlach_screen.jpg horizontal/karlach_coat.jpg vertical/karlach_portrait.jpg vertical/karlach_strap.jpg --no-fehbg
+		feh --bg-fill horizontal/karlach_screen.png horizontal/karlach_coat.jpg vertical/karlach-portrait.jpg vertical/karlach_strap.jpg --no-fehbg
 		;;
 	karlach)
 		echo "space" > $currentSettingFile
