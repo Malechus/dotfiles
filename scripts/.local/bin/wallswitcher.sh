@@ -75,7 +75,7 @@ case $currentSetting in
 		echo "space" > $currentSettingFile
 		echo "Setting walls to space at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/mc_moon.jpg horizontal/mc_moon_crater.jpg vertical/galaxy.jpg vertical/galaxy.jpg --no-fehbg
+		feh --bg-fill horizontal/mc-moon.jpg horizontal/mc_moon_crater.jpg vertical/galaxy.jpg vertical/galaxy.jpg --no-fehbg
 		;;
 esac
 
