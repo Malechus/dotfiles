@@ -21,8 +21,13 @@ cd ~/dotfiles
 # Install a single package
 stow alacritty
 
+# Install a single package to a different directory
+sudo stow icons -t /
+# This installs the conents of ./icons/ into the root directory. Sudo is required to modify /usr/share/pixmaps - use sudo if necessary for the directory you are targeting.
+
 # Install everything
-stow alacritty fastfetch i3 nvim picom rofi x11 zsh
+stow alacritty fastfetch i3 nvim picom rofi x11 zsh copilot spotify-player scripts 
+sudo stow icons -t /
 ```
 
 Each top-level directory is a stow package. Its internal structure mirrors `$HOME`, so `alacritty/.config/alacritty/alacritty.toml` gets linked to `~/.config/alacritty/alacritty.toml`.
