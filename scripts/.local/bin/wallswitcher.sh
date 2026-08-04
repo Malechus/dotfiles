@@ -27,7 +27,7 @@ else
 fi
 
  function notify () {
-	notify-send -t 2000 -p "Setting wallpaper to $1" -i "$1"
+	notify-send -t 2000 -p "Wallpaper Change" "Setting wallpaper to $1" -i "$1"
 }
 
 case $currentSetting in 
