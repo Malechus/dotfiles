@@ -4,6 +4,12 @@ Personal configuration files for a Linux desktop (i3) and macOS (yabai), managed
 
 ---
 
+# Work Safe Branch
+
+This is a branch kept *mostly* up to date with main, but lacking anything I wouldn't want downloaded onto a company owned machine - mostly wallpapers etc. 
+
+---
+
 ## Installation
 
 Clone the repo and use `stow` to symlink any package into your home directory:
