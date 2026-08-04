@@ -27,11 +27,11 @@ net_check
 
 # Set desktop backgrounds
 cd ~/dotfiles
-if git branch --show-current | grep -q "nsfw"; then
+if git branch --show-current | grep -q "main"; then
     echo "dotfiles on correct branch"
 else
-    echo "dotfiles not on correct branch, switching to nsfw"
-    git checkout nsfw
+    echo "dotfiles not on correct branch, switching to main"
+    git checkout main
 fi
 git fetch
 git pull
