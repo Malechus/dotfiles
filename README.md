@@ -6,7 +6,9 @@ Personal configuration files for a Linux desktop (i3) and macOS (yabai), managed
 
 # Main Branch
 
-This branch is the most up to date, and is designed specifically for use on a personal machine, for the same content minus anything I would not want downloaded to a company owned machine, most wallpapers etc., use the [work-safe branch.](https://github.com/Malechus/dotfiles/tree/work-safe)
+This branch is the most up to date, and is designed specifically for use on a personal machine, for the same content minus anything I would not want downloaded to a company owned machine, mostly wallpapers etc., use the [work-safe branch.](https://github.com/Malechus/dotfiles/tree/work-safe)
+
+---
 
 ## Installation
 
