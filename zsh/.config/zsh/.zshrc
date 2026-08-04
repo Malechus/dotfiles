@@ -8,3 +8,6 @@
 for config (~/.config/zsh/*.zsh) source $config
 
 source ~/.config/zsh/.zprofile
+
+# opencode
+export PATH=/home/malechus/.opencode/bin:$PATH

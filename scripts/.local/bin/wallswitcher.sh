@@ -26,6 +26,10 @@ else
 	currentSetting="base"
 fi
 
+ function notify () {
+	notify-send -t 2000 -p "Setting wallpaper to $1" -i "$1"
+}
+
 case $currentSetting in 
 
 	space)
@@ -87,6 +91,3 @@ case $currentSetting in
 		;;
 esac
 
-function notify(){
-	notify-send -u "low" -t 2000 "Setting wallpaper to $1"
-}

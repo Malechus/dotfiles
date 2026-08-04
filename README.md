@@ -306,6 +306,14 @@ System Preferences, settings dialogs, and GoLand preference panes are floated au
 
 ---
 
+### Icons 
+
+A folder for icons which is a dependency of the wallswitcher script in the i3 package.
+This must be mapped to `/` with stow, as `sudo stow icons -t /`
+This is a limitation of the notify-send utility, which only searches specific locations for icon files.
+
+---
+
 ## Acknowledgements
 
 This setup is built on the work of many open source authors and projects.
@@ -350,6 +358,7 @@ This setup is built on the work of many open source authors and projects.
 | [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | rcarriga | MIT |
 | [nvim-nio](https://github.com/nvim-neotest/nvim-nio) | nvim-neotest contributors | MIT |
 | [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Jay Babu & contributors | Apache-2.0 |
+| [notify-send](https://gitlab.gnome.org/GNOME/libnotify) | Andre Filipe de Assuncao e Brito et. al. | LGPL-2.1-or-later |
 
 ---
 
