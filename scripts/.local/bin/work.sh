@@ -3,3 +3,4 @@
 
 bottom.sh 2>&1
 sh ~/.config/i3/walls/desktop-3m-cm.sh 2>&1
+sh ~/.config/polybar/launch.sh & 2>&1

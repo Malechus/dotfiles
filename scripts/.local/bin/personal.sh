@@ -3,3 +3,4 @@
 
 4.sh 2>&1
 sh ~/.config/i3/walls/desktop-4m-cm.sh 2>&1
+sh ~/.config/polybar/launch.sh & 2>&1
