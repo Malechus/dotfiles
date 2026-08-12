@@ -36,7 +36,7 @@ case $currentSetting in
 		echo "pinup" > $currentSettingFile
 		echo "Setting walls to pinup at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/phone_pinup.png horizontal/ub_pinup.png vertical/wash_pinup.png vertical/wp_pinup.png --no-fehbg
+		feh --bg-fill horizontal/ub_pinup.png vertical/wash_pinup.png horizontal/phone_pinup.png vertical/wp_pinup.png --no-fehbg
 		notify "pinup"
 		;;
 	
@@ -44,50 +44,49 @@ case $currentSetting in
 		echo "anime" > $currentSettingFile
 		echo "Setting walls to anime at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/flowers-19.jpg horizontal/marin-eat-cat-mac.png vertical/frieren3.png vertical/maomao1.png --no-fehbg
+		feh --bg-fill horizontal/marin-eat-cat-mac.png vertical/frieren3.png horizontal/flowers-19.jpg vertical/maomao1.png --no-fehbg
 		notify "anime"
 		;;
 	anime)
 		echo "tech" > $currentSettingFile
 		echo "Setting walls to tech at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/blueprint.png horizontal/bacta.png vertical/mech1.png vertical/mech2.png --no-fehbg
+		feh --bg-fill horizontal/bacta.png vertical/mech1.png horizontal/blueprint.png vertical/mech2.png --no-fehbg
 		notify "tech"
 		;;
 	tech)
 		echo "tech2" > $currentSettingFile
 		echo "Setting walls to tech2 at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/old-computer.png horizontal/tux_root.png vertical/mc_hallway.jpg vertical/galaxy.jpg --no-fehbg
+		feh --bg-fill horizontal/tux_root.png vertical/mc_hallway.jpg horizontal/old-computer.png vertical/galaxy.jpg --no-fehbg
 		notify "tech2"
 		;;
 	tech2)
 		echo "arch" > $currentSettingFile
-		echo "Setting walls to arch at $(date +"%D %T")" >> $currentSetting
+		echo "Setting walls to arch at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/arch_windows.png horizontal/catp_arch.png vertical/galaxy.jpg vertical/mc_archi.jpg --no-fehbg
+		feh --bg-fill horizontal/catp_arch.png vertical/galaxy.jpg horizontal/arch_windows.png vertical/mc_archi.jpg --no-fehbg
 		notify "arch"
 		;;
 	arch)
 		echo "shadowheart" > $currentSettingFile
 		echo "Setting walls to shadowheart at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/shdwhrt_field.png horizontal/shdwhrt_model.jpg vertical/cosp_shdwhrt_ling.jpg vertical/cosp_shdwhrt_flowers.jpg --no-fehbg
+		feh --bg-fill horizontal/shdwhrt_model.jpg vertical/cosp_shdwhrt_ling.jpg horizontal/shdwhrt_field.png vertical/cosp_shdwhrt_flowers.jpg --no-fehbg
 		notify "shadowheart"
 		;;
 	shadowheart)
 		echo "karlach" > $currentSettingFile
 		echo "Setting walls to karlach at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/karlach_screen.png horizontal/karlach_coat.jpg vertical/karlach-portrait.jpg vertical/karlach_strap.jpg --no-fehbg
+		feh --bg-fill horizontal/karlach_coat.jpg vertical/karlach-portrait.jpg horizontal/karlach_screen.png vertical/karlach_strap.jpg --no-fehbg
 		notify "karlach"
 		;;
 	karlach)
 		echo "space" > $currentSettingFile
 		echo "Setting walls to space at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/mc-moon.jpg horizontal/mc_moon_crater.jpg vertical/galaxy.jpg vertical/galaxy.jpg --no-fehbg
+		feh --bg-fill horizontal/mc_moon_crater.jpg vertical/galaxy.jpg horizontal/mc-moon.jpg vertical/galaxy.jpg --no-fehbg
 		notify "space"
 		;;
 esac
-
