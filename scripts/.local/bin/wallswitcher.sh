@@ -26,10 +26,12 @@ else
 	currentSetting="base"
 fi
 
+# Now, we'll add a function to send a notification to the desktop when the wallpaper is changed.
  function notify () {
 	notify-send -t 2000 -p "Wallpaper Change" "Setting wallpaper to $1" -i "$1"
 }
 
+# And finally, we'll trigger the change, moving through the list based on where we already are.
 case $currentSetting in 
 
 	space)
