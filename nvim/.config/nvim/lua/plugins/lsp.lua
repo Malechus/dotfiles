@@ -3,10 +3,16 @@ local mason_lspconfig = require("mason-lspconfig")
 
 mason.setup({
 	ui = { border = "rounded" },
+	-- Crashdummyy's registry carries a build of the Roslyn language server that tracks
+	-- the version shipped with VS Code's C# extension; the default registry's copy lags behind.
+	registries = {
+		"github:mason-org/mason-registry",
+		"github:Crashdummyy/mason-registry",
+	},
 })
 
 mason_lspconfig.setup({
-	ensure_installed = { "omnisharp", "jdtls" },
+	ensure_installed = { "jdtls" },
 })
 
 -- Capabilities advertised to the server: merge nvim defaults with what nvim-cmp adds.
@@ -16,24 +22,14 @@ local capabilities = ok
 	and vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp_nvim_lsp.default_capabilities())
 	or vim.lsp.protocol.make_client_capabilities()
 
-local omnisharp_extended_ok, omnisharp_extended = pcall(require, "omnisharp_extended")
-
-vim.lsp.config("omnisharp", {
-	capabilities = capabilities,
-	-- Use the extended handler so go-to-definition works on decompiled sources.
-	-- OmniSharp sometimes returns omnisharp://metadata URIs that the default handler cannot open.
-	handlers = omnisharp_extended_ok and {
-		["textDocument/definition"] = omnisharp_extended.handler,
-	} or nil,
-	settings = {
-		omnisharp = {
-			-- Only load projects explicitly opened, not the whole solution tree up-front.
-			enableMsBuildLoadProjectsOnDemand = true,
-			enableRoslynAnalyzers = true,
-			organizeImportsOnFormat = true,
-			enableEditorConfigSupport = true,
-		},
+-- Replaces OmniSharp: roslyn.nvim drives the actively maintained Roslyn LSP (the same
+-- server VS Code's C# extension uses) instead of the discontinued OmniSharp, which
+-- has a long-standing bug where it emits a bare JSON `null` message that Neovim's LSP
+-- client cannot parse (logged as "INVALID_SERVER_MESSAGE: vim.NIL").
+require("roslyn").setup({
+	config = {
+		capabilities = capabilities,
 	},
 })
 
-vim.lsp.enable({ "omnisharp", "jdtls" })
+vim.lsp.enable({ "jdtls" })

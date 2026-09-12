@@ -30,8 +30,9 @@ nvim +PlugInstall +qall
 ### 4. Let mason auto-install language servers
 
 Open nvim after PlugInstall. Mason will automatically download and install:
-- `omnisharp` — C# language server
 - `netcoredbg` — C# debugger
+
+The C# language server itself (Roslyn) is installed separately — run `:MasonInstall roslyn` once. It comes from the `Crashdummyy/mason-registry` custom registry (configured in `lua/plugins/lsp.lua`), which tracks the same Roslyn version shipped with VS Code's C# extension.
 
 This requires an internet connection and .NET SDK. Progress is shown in the `:Mason` window.
 
@@ -73,7 +74,7 @@ nvim/.config/nvim/
         ├── line-numbers.lua
         ├── lualine.lua      # statusline, including Git branch
         ├── nvim-tree.lua  # file explorer
-        ├── lsp.lua        # mason + lspconfig + omnisharp
+        ├── lsp.lua        # mason + lspconfig + roslyn (C#)
         ├── cmp.lua        # completion engine
         ├── telescope.lua  # fuzzy finder
         ├── treesitter.lua # syntax highlighting
@@ -151,25 +152,28 @@ The DAP UI opens automatically when a debug session starts and closes when it en
 
 ### Opening a project
 
-Open nvim from the solution or project root so OmniSharp can find the `.sln` or `.csproj` file:
+Open nvim from the solution or project root so Roslyn can find the `.sln` or `.csproj` file:
 
 ```sh
 cd ~/source/repos/MyProject
 nvim .
 ```
 
-OmniSharp loads in the background. The status line will show `[LSP]` once it is ready (this may take a few seconds on first open for large solutions).
+Roslyn loads in the background. The status line will show `[LSP]` once it is ready (this may take a few seconds on first open for large solutions).
+
+> [!NOTE]
+> The C# LSP used to be OmniSharp, but it was replaced with Roslyn (via `roslyn.nvim`) because OmniSharp is discontinued and has a long-standing bug where it occasionally sends a bare JSON `null` message that Neovim's LSP client can't parse, logged as `INVALID_SERVER_MESSAGE: vim.NIL`. Roslyn is the same language server used by VS Code's C# extension and doesn't have this issue.
 
 ### Navigation
 
-- `gd` on any method call, property, or type jumps to its definition. If the symbol is in a NuGet dependency, OmniSharp decompiles the source on-the-fly and opens it in a read-only buffer.
+- `gd` on any method call, property, or type jumps to its definition. If the symbol is in a NuGet dependency, Roslyn decompiles the source on-the-fly and opens it in a read-only buffer (built into `roslyn.nvim`, no extra plugin needed).
 - `gr` lists every place a symbol is used, displayed in a Telescope picker. Navigate with arrow keys or `j/k`, press `Enter` to jump.
 - `gi` jumps to the implementation of an interface member.
 - `<leader>ff` / `<leader>fg` let you navigate by filename or text pattern across the whole project.
 
 ### Diagnostics
 
-Errors and warnings from OmniSharp appear inline as virtual text and in the sign column. Use `[d` / `]d` to step through them without leaving the keyboard.
+Errors and warnings from Roslyn appear inline as virtual text and in the sign column. Use `[d` / `]d` to step through them without leaving the keyboard.
 
 ### Debugging
 
@@ -197,7 +201,7 @@ To attach to a running process instead of launching: the debug config menu (show
 | nvim-lspconfig | LSP client |
 | mason.nvim | Install and update LSP servers and DAP adapters |
 | mason-lspconfig.nvim | Auto-configure mason-installed LSP servers |
-| omnisharp-extended-lsp.nvim | Decompiled-source go-to-definition for C# |
+| roslyn.nvim | C# language server (Roslyn) client, replaces OmniSharp |
 | nvim-cmp | Completion engine |
 | cmp-nvim-lsp | LSP completions |
 | cmp-buffer | Word completions from open buffers |
