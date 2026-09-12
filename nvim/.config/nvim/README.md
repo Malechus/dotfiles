@@ -66,6 +66,7 @@ nvim/.config/nvim/
     └── plugins/
         ├── autopair.lua   # nvim-autopairs
         ├── line-numbers.lua
+        ├── lualine.lua      # statusline, including Git branch
         ├── nvim-tree.lua  # file explorer
         ├── lsp.lua        # mason + lspconfig + omnisharp
         ├── cmp.lua        # completion engine
@@ -186,6 +187,7 @@ To attach to a running process instead of launching: the debug config menu (show
 | nvim-web-devicons | File type icons |
 | nvim-tree.lua | File explorer sidebar |
 | line-numbers.nvim | Hybrid relative + absolute line numbers |
+| lualine.nvim | Statusline with the current Git branch, diff stats, and diagnostics |
 | nvim-autopairs | Auto-close brackets and quotes |
 | nvim-lspconfig | LSP client |
 | mason.nvim | Install and update LSP servers and DAP adapters |
