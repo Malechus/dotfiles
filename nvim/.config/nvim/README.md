@@ -35,12 +35,16 @@ Open nvim after PlugInstall. Mason will automatically download and install:
 
 This requires an internet connection and .NET SDK. Progress is shown in the `:Mason` window.
 
-### 5. Install a C compiler (if not present)
+### 5. Install build dependencies (if not present)
 
-Treesitter compiles parsers locally and needs gcc or clang:
+Treesitter compiles parsers locally and requires a C compiler (`gcc` or `clang`) and the `tree-sitter` CLI:
 
 ```sh
-sudo apt install gcc   # Debian/Ubuntu
+# Arch Linux
+sudo pacman -S gcc tree-sitter-cli
+
+# Debian/Ubuntu
+sudo apt install gcc tree-sitter-cli
 ```
 
 ### 6. Install the C# Treesitter parser
@@ -50,6 +54,7 @@ Inside nvim:
 ```
 :TSInstall c_sharp
 ```
+Replace `c_sharp` with your language of choice(s)
 
 ---
 
