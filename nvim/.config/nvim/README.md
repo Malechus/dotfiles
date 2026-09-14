@@ -31,6 +31,7 @@ nvim +PlugInstall +qall
 
 Open nvim after PlugInstall. Mason will automatically download and install:
 - `netcoredbg` — C# debugger
+- `cucumber-language-server` — Cucumber/Gherkin language server for `.feature` files
 
 The C# language server itself (Roslyn) is installed separately — run `:MasonInstall roslyn` once. It comes from the `Crashdummyy/mason-registry` custom registry (configured in `lua/plugins/lsp.lua`), which tracks the same Roslyn version shipped with VS Code's C# extension.
 
@@ -85,9 +86,21 @@ nvim/.config/nvim/
 
 ---
 
+## Cucumber Workflow
+
+Open Neovim from a repository containing your Cucumber project. Mason installs and starts `cucumber-language-server` for `.feature` files automatically. It supplies diagnostics, step-definition navigation, hover documentation, and completion through the existing LSP keybindings and `nvim-cmp` integration.
+
+If Mason has not yet installed it, run `:Mason` and wait for `cucumber-language-server` to finish installing, then reopen the `.feature` file.
+
+---
+
 ## Keybindings
 
 The leader key is `<Space>`.
+
+### Command Line
+
+After typing `:!` and part of a shell command or path, press `Tab` to complete it. The first press expands the shared prefix and displays matching candidates; press `Tab` again to cycle through them.
 
 ### File Explorer
 
@@ -201,6 +214,7 @@ To attach to a running process instead of launching: the debug config menu (show
 | nvim-lspconfig | LSP client |
 | mason.nvim | Install and update LSP servers and DAP adapters |
 | mason-lspconfig.nvim | Auto-configure mason-installed LSP servers |
+| cucumber-language-server | Cucumber/Gherkin language server |
 | roslyn.nvim | C# language server (Roslyn) client, replaces OmniSharp |
 | nvim-cmp | Completion engine |
 | cmp-nvim-lsp | LSP completions |
