@@ -1,0 +1,49 @@
+#!/bin/sh
+
+update_mac(){
+	echo "updating homebrew packages"
+	brew update && brew upgrade
+}
+
+update_arch(){
+	echo "Updating pacman packages"
+	sudo pacman -Syu	
+}
+
+update_ubuntu(){
+	echo "Updating apt packages"
+	sudo apt update && sudo apt upgrade -y
+}
+
+echo "Updating dotfiles"
+cd ~/dotfiles 
+git fetch
+git pull
+
+cd $ZDOTDIR/plugins/ 
+
+for rdir in */; do
+	echo "Updating $rdir"
+	cd $rdir
+	git fetch
+	git pull
+	cd ..
+done
+
+case $OSTYPE in
+	"linux-gnu")
+		case $(lsb_release -i | cut -f 2-) in
+			Arch)
+				update_arch
+				;;
+			Ubuntu)
+				update_ubuntu
+				;;
+		esac
+		;;
+	"darwin")
+		update_mac
+		;;
+esac
+
+
