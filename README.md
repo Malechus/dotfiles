@@ -4,6 +4,12 @@ Personal configuration files for a Linux desktop (i3) and macOS (yabai), managed
 
 ---
 
+# Main Branch
+
+This branch is the most up to date, and is designed specifically for use on a personal machine, for the same content minus anything I would not want downloaded to a company owned machine, mostly wallpapers etc., use the [work-safe branch.](https://github.com/Malechus/dotfiles/tree/work-safe)
+
+---
+
 ## Installation
 
 Clone the repo and use `stow` to symlink any package into your home directory:
@@ -15,8 +21,13 @@ cd ~/dotfiles
 # Install a single package
 stow alacritty
 
+# Install a single package to a different directory
+sudo stow icons -t /
+# This installs the conents of ./icons/ into the root directory. Sudo is required to modify /usr/share/pixmaps - use sudo if necessary for the directory you are targeting.
+
 # Install everything
-stow alacritty fastfetch i3 nvim picom rofi x11 zsh
+stow alacritty fastfetch i3 nvim picom rofi x11 zsh copilot spotify-player scripts 
+sudo stow icons -t /
 ```
 
 Each top-level directory is a stow package. Its internal structure mirrors `$HOME`, so `alacritty/.config/alacritty/alacritty.toml` gets linked to `~/.config/alacritty/alacritty.toml`.
@@ -55,7 +66,7 @@ All tools use the **[Catppuccin Macchiato](https://github.com/catppuccin/catppuc
 | Bar background | `#494d64` |
 
 **Fonts**
-- **UI / i3 bar:** Hurmit Nerd Font Regular 14pt
+- **UI / Polybar:** Hurmit Nerd Font Regular 14pt
 - **Terminal:** CaskaydiaCove Nerd Font Mono Regular
 
 **WallPapers**  
@@ -68,8 +79,7 @@ Wallpapers are located within the i3 directory (`i3/.config/i3/walls/`). Helper 
 | `personal.sh` | Run `4.sh` and set 4-monitor wallpapers |
 | `work.sh` | Run `bottom.sh` and set 3-monitor wallpapers |
 | `wallswitcher.sh` | Cycle through named wallpaper presets using `feh`; bound to `Super+Shift+W` |
-
-Some wallpapers and scripts are not included in the main branch, but can be found on the `nsfw` branch. Nothing in it is graphic, but I don't want them getting pulled to my work computer.
+| `screenswitcher.sh` | Trigger the change from `bottom.sh` to `4.sh` and back; bound to `Super+Shift+S` |
 
 ---
 
@@ -93,7 +103,7 @@ Tiling window manager for X11. The modifier key is `Super` (Windows key).
 | Restart i3 | `Super+Shift+R` |
 | Exit i3 | `Super+Shift+E` |
 
-Focus and window movement use `j/k/l/;` (vim-style) or arrow keys. Workspaces 1–4 have Nerd Font icons; workspaces 5–10 are plain numbers.
+Focus and window movement use `j/k/l/;` (vim-style) or arrow keys.
 
 **Workspace assignments**
 
@@ -110,9 +120,10 @@ Focus and window movement use `j/k/l/;` (vim-style) or arrow keys. Workspaces 1�
 | 1 | DP-2 (primary) |
 | 2 | DP-4 |
 | 3 | DP-0 |
+| 4 | HDMI-0 (primary, when active) |
 
 **Bar**  
-A dark (`#494d64`) bar sits at the top of every monitor. The primary display shows `i3status` system info (statusline in green `#a6da95`) and the system tray; secondary displays show only the workspace list. Workspace labels use pink (`#f0c6c6`) for active/focused and blue-white (`#cad3f5`) for inactive.
+Polybar runs at the top of every monitor via `polybar/`. The launch script kills any existing bars, detects connected monitors, and starts `primary` on the primary monitor and `secondary` on the others. The shared base bar is centered, uses Catppuccin Macchiato colors, shows the i3 workspace list on the left, `name` and `xwindow` in the center, `date` on the right, and the tray only on the primary bar.
 
 **Visual**  
 5px inner and outer gaps, no window borders, smart gaps (gaps collapse when only one window is open).
@@ -124,7 +135,7 @@ The config is split into numbered files loaded via `include`:
 | `config` | Variables, workspace names, include directive |
 | `01-keybindings-i3.conf` | All key/mouse bindings |
 | `02-modes-i3.conf` | Resize mode |
-| `03-bar-i3.conf` | Bar definitions |
+| `03-bar-i3.conf` | Bar definitions, but Polybar is now the active bar setup |
 | `04-workspaces-i3.conf` | Per-app workspace assignments |
 | `05-settings-i3.conf` | Font, gaps, volume keys |
 | `ZZ-startup-i3.conf` | Autostart execs (dex, xss-lock, display setup + wallpapers via scripts, autotiling) |
@@ -306,6 +317,14 @@ System Preferences, settings dialogs, and GoLand preference panes are floated au
 
 ---
 
+### Icons 
+
+A folder for icons which is a dependency of the wallswitcher script in the i3 package.
+This must be mapped to `/` with stow, as `sudo stow icons -t /`
+This is a limitation of the notify-send utility, which only searches specific locations for icon files.
+
+---
+
 ## Acknowledgements
 
 This setup is built on the work of many open source authors and projects.
@@ -350,6 +369,8 @@ This setup is built on the work of many open source authors and projects.
 | [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | rcarriga | MIT |
 | [nvim-nio](https://github.com/nvim-neotest/nvim-nio) | nvim-neotest contributors | MIT |
 | [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Jay Babu & contributors | Apache-2.0 |
+| [notify-send](https://gitlab.gnome.org/GNOME/libnotify) | Andre Filipe de Assuncao e Brito et. al. | LGPL-2.1-or-later |
+| [polybar](https://github.com/polybar/polybar) | Patrick Ziegler, Michael Carlberg | MIT |
 
 ---
 
@@ -359,7 +380,8 @@ This setup is built on the work of many open source authors and projects.
 dotfiles/
 ├── alacritty/    # Terminal emulator config
 ├── fastfetch/    # System info display config
-├── i3/           # i3 window manager config + bar scripts + wallpapers + ~/.local/bin scripts
+├── i3/           # i3 window manager config + wallpapers + ~/.local/bin scripts
+├── polybar/      # Polybar config + launch script
 ├── nvim/         # Neovim config (C# development)
 ├── picom/        # Compositor config
 ├── rofi/         # App launcher config

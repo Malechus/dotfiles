@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { noremap = true, silent = true, buffer = event.buf }
 
 		-- Navigation
-		vim.keymap.set("n", "gd", function() require("omnisharp_extended").lsp_definitions() end, opts) -- go to definition (handles decompiled sources)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)                                          -- go to definition (roslyn.nvim handles decompiled sources natively)
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)                                         -- go to declaration
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)                                      -- go to implementation
 		vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references() end, opts)    -- find all references (in telescope)

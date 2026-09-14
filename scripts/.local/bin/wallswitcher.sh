@@ -26,20 +26,69 @@ else
 	currentSetting="base"
 fi
 
+# Now, we'll add a function to send a notification to the desktop when the wallpaper is changed.
+ function notify () {
+	notify-send -t 2000 -p "Wallpaper Change" "Setting wallpaper to $1" -i "$1"
+}
+
+# And finally, we'll trigger the change, moving through the list based on where we already are.
 case $currentSetting in 
 
-	four)
+	space)
 		echo "pinup" > $currentSettingFile
-		echo "Setting walls to four at $(date +"%D %T")" >> $currentLogFile
+		echo "Setting walls to pinup at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/phone_pinup.png horizontal/ub_pinup.png vertical/wash_pinup.png vertical/wp_pinup.png --no-fehbg
+		feh --bg-fill horizontal/ub_pinup.png vertical/wash_pinup.png horizontal/phone_pinup.png vertical/wp_pinup.png --no-fehbg
+		notify "pinup"
 		;;
 	
 	base | pinup)
-		echo "four" > $currentSettingFile
-		echo "Setting walls to pinup at $(date +"%D %T")" >> $currentLogFile
+		echo "anime" > $currentSettingFile
+		echo "Setting walls to anime at $(date +"%D %T")" >> $currentLogFile
 		cd ~/.config/i3/walls
-		feh --bg-fill horizontal/flowers-19.jpg horizontal/marin-eat-cat-mac.png vertical/frieren3.png vertical/maomao1.png --no-fehbg
+		feh --bg-fill horizontal/marin-eat-cat-mac.png vertical/frieren3.png horizontal/flowers-19.jpg vertical/maomao1.png --no-fehbg
+		notify "anime"
+		;;
+	anime)
+		echo "tech" > $currentSettingFile
+		echo "Setting walls to tech at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/bacta.png vertical/mech1.png horizontal/blueprint.png vertical/mech2.png --no-fehbg
+		notify "tech"
+		;;
+	tech)
+		echo "tech2" > $currentSettingFile
+		echo "Setting walls to tech2 at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/tux_root.png vertical/mc_hallway.jpg horizontal/old-computer.png vertical/galaxy.jpg --no-fehbg
+		notify "tech2"
+		;;
+	tech2)
+		echo "arch" > $currentSettingFile
+		echo "Setting walls to arch at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/catp_arch.png vertical/galaxy.jpg horizontal/arch_windows.png vertical/mc_archi.jpg --no-fehbg
+		notify "arch"
+		;;
+	arch)
+		echo "shadowheart" > $currentSettingFile
+		echo "Setting walls to shadowheart at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/shdwhrt_model.jpg vertical/cosp_shdwhrt_ling.jpg horizontal/shdwhrt_field.png vertical/cosp_shdwhrt_flowers.jpg --no-fehbg
+		notify "shadowheart"
+		;;
+	shadowheart)
+		echo "karlach" > $currentSettingFile
+		echo "Setting walls to karlach at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/karlach_coat.jpg vertical/karlach-portrait.jpg horizontal/karlach_screen.png vertical/karlach_strap.jpg --no-fehbg
+		notify "karlach"
+		;;
+	karlach)
+		echo "space" > $currentSettingFile
+		echo "Setting walls to space at $(date +"%D %T")" >> $currentLogFile
+		cd ~/.config/i3/walls
+		feh --bg-fill horizontal/mc_moon_crater.jpg vertical/galaxy.jpg horizontal/mc-moon.jpg vertical/galaxy.jpg --no-fehbg
+		notify "space"
 		;;
 esac
-

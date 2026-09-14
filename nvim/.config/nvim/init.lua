@@ -9,6 +9,7 @@ Plug('catppuccin/nvim', { ['as'] = 'catppuccin' })
 Plug('nvim-tree/nvim-web-devicons')
 Plug('nvim-tree/nvim-tree.lua')
 Plug('shrynx/line-numbers.nvim')
+Plug('nvim-lualine/lualine.nvim')
 
 -- Editing
 Plug('windwp/nvim-autopairs')
@@ -17,7 +18,7 @@ Plug('windwp/nvim-autopairs')
 Plug('neovim/nvim-lspconfig')
 Plug('williamboman/mason.nvim')
 Plug('williamboman/mason-lspconfig.nvim')
-Plug('Hoffs/omnisharp-extended-lsp.nvim')
+Plug('seblyng/roslyn.nvim')
 Plug('mfussenegger/nvim-jdtls')
 
 -- Completion
@@ -52,12 +53,9 @@ require("config.mapping")
 require("plugins.nvim-tree")
 require("plugins.autopair")
 require("plugins.line-numbers")
---require("plugins.lsp")
+require("plugins.lualine")
+require("plugins.lsp")
 require("plugins.cmp")
 require("plugins.telescope")
 require("plugins.treesitter")
 require("plugins.dap")
-
-
-vim.lsp.enable('cs')
-vim.lsp.enable('java')
