@@ -70,12 +70,15 @@ All tools use the **[Catppuccin Macchiato](https://github.com/catppuccin/catppuc
 - **Terminal:** CaskaydiaCove Nerd Font Mono Regular
 
 **WallPapers**  
-Wallpapers are located within the i3 directory (`i3/.config/i3/walls/`). Helper scripts live in `i3/.local/bin/` and are linked into `~/.local/bin/` by the i3 stow package:
+Wallpapers are stored in `~/.local/share/wallpapers/` via a separate `wallpapers` repository linked with GNU Stow. Helper scripts live in `scripts/.local/bin/` and are linked into `~/.local/bin/` by the `scripts` stow package:
 
 | Script | Purpose |
 |---|---|
 | `4.sh` | Configure xrandr for a 4-monitor layout |
 | `bottom.sh` | Configure xrandr for a 3-monitor layout (hostname-gated to `polyphemus`) |
+| `desktop-3m-cm.sh` | Set 3-monitor wallpaper layout |
+| `desktop-4m-cm.sh` | Set 4-monitor wallpaper layout |
+| `pinup-4m-cm.sh` | Set pinup wallpaper preset |
 | `personal.sh` | Run `4.sh` and set 4-monitor wallpapers |
 | `work.sh` | Run `bottom.sh` and set 3-monitor wallpapers |
 | `wallswitcher.sh` | Cycle through named wallpaper presets using `feh`; bound to `Super+Shift+W` |
@@ -380,11 +383,12 @@ This setup is built on the work of many open source authors and projects.
 dotfiles/
 ├── alacritty/    # Terminal emulator config
 ├── fastfetch/    # System info display config
-├── i3/           # i3 window manager config + wallpapers + ~/.local/bin scripts
+├── i3/           # i3 window manager config
 ├── polybar/      # Polybar config + launch script
 ├── nvim/         # Neovim config (C# development)
 ├── picom/        # Compositor config
 ├── rofi/         # App launcher config
+├── scripts/      # Shell scripts linked to ~/.local/bin/ (wallpaper switchers, screen layouts)
 ├── x11/          # X11 session environment (.xprofile)
 ├── yabai/        # macOS tiling WM config
 └── zsh/          # ZSH shell config + plugins (plugins gitignored)
