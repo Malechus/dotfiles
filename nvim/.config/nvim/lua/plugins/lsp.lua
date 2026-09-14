@@ -12,7 +12,7 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-	ensure_installed = { "jdtls" },
+	ensure_installed = { "jdtls", "cucumber_language_server" },
 })
 
 -- Capabilities advertised to the server: merge nvim defaults with what nvim-cmp adds.
@@ -32,4 +32,8 @@ require("roslyn").setup({
 	},
 })
 
-vim.lsp.enable({ "jdtls" })
+vim.lsp.config("cucumber_language_server", {
+	capabilities = capabilities,
+})
+
+vim.lsp.enable({ "jdtls", "cucumber_language_server" })
