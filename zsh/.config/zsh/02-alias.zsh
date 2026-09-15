@@ -21,4 +21,6 @@ alias paths='echo -e ${PATH//:/\\n}'
 
 alias please='sudo !!'
 
+alias clear='clear && fastfetch'
+
 #alias copilot='copilot --allow-tool=shell(ls:*) --allow-tool=shell(cat:*) --allow-tool=shell(echo:*) --allow-tool=shell(git fetch) --allow-tool=shell(git checkout) --allow-tool=shell(grep:*) --allow-tool=shell(find:*) --allow-tool=shell(tail:*) --allow-tool=shell(head:*) --allow-tool=url(https://docs.github.com)'
