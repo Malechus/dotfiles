@@ -41,7 +41,7 @@ case $OSTYPE in
 				;;
 		esac
 		;;
-	"darwin")
+	darwin*)
 		update_mac
 		;;
 esac
