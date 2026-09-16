@@ -1,0 +1,128 @@
+# Amethyst configuration
+#
+# Ported from this repo's i3 config (i3/.config/i3/01-keybindings-i3.conf and
+# 04-workspaces-i3.conf) to be as close a match as i3's manual-tiling model
+# allows to Amethyst's automatic-layout model. See inline notes for anywhere
+# the two window managers don't have a 1:1 concept.
+#
+# i3's $mod is Mod4 (the Super/Windows key). macOS has no Super key, so:
+#   mod1 = command             (stands in for i3's plain $mod)
+#   mod2 = command + shift     (stands in for i3's $mod+Shift)
+
+mod1:
+  - command
+mod2:
+  - command
+  - shift
+
+layouts:
+  - tall
+  - wide
+  - fullscreen
+  - column
+
+# --- Focus ---
+# i3 binds directional focus (j/k/l/semicolon + arrows = left/down/up/right).
+# Amethyst only supports cyclic focus (cw/ccw) through the window list, not
+# arbitrary directions, so we collapse the four i3 keys onto the two cyclic
+# commands: mod+j -> ccw, mod+semicolon -> cw (closest in spirit to i3's
+# left/right pair). mod+k / mod+l (i3's down/up) have no Amethyst equivalent
+# and are intentionally left unbound.
+focus-ccw:
+  mod: mod1
+  key: j
+focus-cw:
+  mod: mod1
+  key: semicolon
+
+# --- Move focused window ---
+# Same reasoning as focus above: i3's mod+Shift+j/semicolon (left/right)
+# become swap-ccw/swap-cw. mod+Shift+k/l (down/up) have no equivalent.
+swap-ccw:
+  mod: mod2
+  key: j
+swap-cw:
+  mod: mod2
+  key: semicolon
+
+# --- Fullscreen ---
+# i3: mod+f = fullscreen toggle. Amethyst treats fullscreen as a layout
+# rather than a per-window toggle, so this switches straight to it.
+select-fullscreen-layout:
+  mod: mod1
+  key: f
+
+# --- Container layout ---
+# i3's stacking/tabbed/toggle-split (mod+s / mod+w / mod+e) are container
+# concepts Amethyst doesn't have. Approximated with the closest built-in
+# layouts: column (stacking) and wide (tabbed-like single-focus row), and
+# cycle-layout for "toggle split".
+select-column-layout:
+  mod: mod1
+  key: s
+select-wide-layout:
+  mod: mod1
+  key: w
+cycle-layout:
+  mod: mod1
+  key: e
+
+# --- Floating ---
+# i3: mod+Shift+space = floating toggle. Direct equivalent.
+toggle-float:
+  mod: mod2
+  key: space
+# i3: mod+space = focus mode_toggle (switch focus between tiled/floating).
+# Amethyst has no matching concept, so this is intentionally unbound.
+
+# --- Move window to workspace ---
+# i3's mod+Shift+1..0 (move container to workspace N) maps directly to
+# Amethyst's throw-space-N. i3's plain mod+1..0 (just switch workspace, no
+# window) has no Amethyst equivalent, since Space switching is handled by
+# macOS itself, not Amethyst.
+throw-space-1:
+  mod: mod2
+  key: 1
+throw-space-2:
+  mod: mod2
+  key: 2
+throw-space-3:
+  mod: mod2
+  key: 3
+throw-space-4:
+  mod: mod2
+  key: 4
+throw-space-5:
+  mod: mod2
+  key: 5
+throw-space-6:
+  mod: mod2
+  key: 6
+throw-space-7:
+  mod: mod2
+  key: 7
+throw-space-8:
+  mod: mod2
+  key: 8
+throw-space-9:
+  mod: mod2
+  key: 9
+throw-space-10:
+  mod: mod2
+  key: 0
+
+# --- Restart ---
+# i3: mod+Shift+r = restart in place. Closest Amethyst equivalent.
+relaunch-amethyst:
+  mod: mod2
+  key: r
+
+# --- Not portable from i3, left out on purpose ---
+# mod+Return (launch terminal), mod+d (launcher), mod+Print (screenshot),
+# mod+Shift+s (screen layout switch), mod+Shift+w (wallpaper switch),
+# mod+Shift+q (kill window), mod+Shift+c (reload config), mod+Shift+e
+# (exit session), mod+Shift+x (lock screen), mod+a (focus parent container).
+# These are either app-launching/system actions i3 delegates to external
+# tools, or i3 container concepts Amethyst doesn't have. Recreate them with
+# macOS-native tools (e.g. Hammerspoon, Alfred, Raycast, or system
+# Keyboard Shortcuts) rather than Amethyst, which only manages tiling.
