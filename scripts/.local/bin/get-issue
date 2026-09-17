@@ -1,0 +1,75 @@
+#!/bin/sh
+
+set -eu
+
+if [ "$#" -ne 1 ]; then
+  printf 'Usage: %s ISSUE-KEY\n' "$0" >&2
+  exit 2
+fi
+
+ISSUE_KEY=$1
+TOKEN_FILE=${JIRA_TOKEN_FILE:-"$HOME/creds/jira-api-token"}
+JIRA_BASE_URL=${JIRA_BASE_URL:-"https://vsco.atlassian.net"}
+JIRA_EMAIL=${JIRA_EMAIL:-"grkelly@victoria.com"}
+
+if [ ! -r "$TOKEN_FILE" ]; then
+  printf 'Unable to read Jira API token file: %s\n' "$TOKEN_FILE" >&2
+  exit 1
+fi
+
+BEARER_TOKEN=$(cat "$TOKEN_FILE")
+
+RESPONSE=$(curl --request GET \
+  --fail-with-body \
+  --silent \
+  --show-error \
+  --url "${JIRA_BASE_URL}/rest/api/3/issue/${ISSUE_KEY}?fields=description" \
+  --user "${JIRA_EMAIL}:${BEARER_TOKEN}" \
+  --header 'Accept: application/json')
+
+printf '%s\n' "$RESPONSE" |
+  jq --exit-status --raw-output '
+    def adf_text:
+      if .type == "text" then
+        .text
+      elif .type == "hardBreak" then
+        "<br>"
+      elif .type == "inlineCard" then
+        .attrs.url // ""
+      elif .type == "mention" then
+        .attrs.text // .attrs.id // ""
+      elif .type == "emoji" then
+        .attrs.text // .attrs.shortName // ""
+      elif .type == "status" then
+        .attrs.text // ""
+      elif .content? then
+        [.content[] | adf_text] | join("")
+      else
+        ""
+      end;
+
+    def markdown_cell:
+      ([.content[]? | adf_text] | join("<br>"))
+      | gsub("\r?\n"; "<br>")
+      | gsub("\\|"; "\\|")
+      | gsub("^(<br>)+|(<br>)+$"; "")
+      | gsub("^\\s+|\\s+$"; "");
+
+    def markdown_row:
+      "| " + ([.content[] | markdown_cell] | join(" | ")) + " |";
+
+    [
+      .fields.description.content[]?
+      | select(.type == "table")
+      | .content as $rows
+      | select(($rows | length) > 0)
+      | ($rows[0] | markdown_row),
+        ("| " + ([$rows[0].content[] | "---"] | join(" | ")) + " |"),
+        ($rows[1:][]? | markdown_row)
+    ] as $lines
+    | if ($lines | length) == 0 then
+        error("Jira issue description does not contain a table")
+      else
+        $lines | join("\n")
+      end
+  '
