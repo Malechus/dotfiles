@@ -8,6 +8,16 @@ mason_nvim_dap.setup({
 	handlers = {},
 })
 
+-- java-debug-adapter/java-test aren't LSP servers, so mason-lspconfig's ensure_installed
+-- can't manage them; install them directly so ftplugin/java.lua's jdtls bundles resolve.
+local mason_registry = require("mason-registry")
+for _, pkg_name in ipairs({ "java-debug-adapter", "java-test" }) do
+	local pkg = mason_registry.get_package(pkg_name)
+	if not pkg:is_installed() then
+		pkg:install()
+	end
+end
+
 dapui.setup({
 	icons = { expanded = "v", collapsed = ">", current_frame = "*" },
 	layouts = {
