@@ -42,6 +42,10 @@ dapui.setup({
 	},
 })
 
+-- Honour preLaunchTask/postDebugTask from ./.vscode/launch.json + tasks.json, so projects
+-- with VS Code debug setups (e.g. start a test runner, then JDWP attach) work unchanged.
+require("plugins.dap-vscode-tasks").setup()
+
 -- Auto-open and auto-close the DAP UI with the debug session
 dap.listeners.before.attach.dapui_config = function() dapui.open() end
 dap.listeners.before.launch.dapui_config = function() dapui.open() end

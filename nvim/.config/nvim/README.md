@@ -79,7 +79,8 @@ nvim/.config/nvim/
         ├── cmp.lua        # completion engine
         ├── telescope.lua  # fuzzy finder
         ├── treesitter.lua # syntax highlighting
-        └── dap.lua        # debugger
+        ├── dap.lua        # debugger
+        └── dap-vscode-tasks.lua # preLaunchTask/postDebugTask support for launch.json
 ```
 
 `init.lua` loads `config.options` first (sets the leader key), then `config.colors`, then `config.mapping`. Plugin configs are loaded last.
@@ -198,6 +199,28 @@ Errors and warnings from Roslyn appear inline as virtual text and in the sign co
 6. The DAP UI (left panel + bottom panel) shows local scopes, the call stack, active breakpoints, and the debug console.
 
 To attach to a running process instead of launching: the debug config menu (shown when you press `<F5>`) includes an "Attach" option that lets you pick a running .NET process by PID.
+
+---
+
+## Java Workflow
+
+Java is handled by `nvim-jdtls` (started from `ftplugin/java.lua`), which also registers the `java` DAP adapter using the mason-installed `java-debug-adapter` and `java-test` bundles.
+
+### Debugging with a project's VS Code setup
+
+nvim-dap reads `./.vscode/launch.json` automatically. `lua/plugins/dap-vscode-tasks.lua` adds the two keys nvim-dap ignores:
+
+- `preLaunchTask`: runs the named task from `./.vscode/tasks.json` in a terminal split. `${workspaceFolder}`, `${env:NAME}`, and `${input:id}` are resolved (inputs are prompted for). For `isBackground` tasks, the debugger waits until a line matches `problemMatcher.background.endsPattern`. For `attach` configs with a local `port`, it also waits until something is listening on that port. This matters for JDWP, whose "Listening for transport..." banner stays buffered inside a surefire fork until the JVM exits.
+- `postDebugTask`: runs when the session ends. Tasks with `presentation.reveal: "silent"` run without opening a window.
+
+If the debug port is already in use when you start a session, it is aborted with the PID of the process holding it, so you don't accidentally attach to a stale JVM.
+
+Typical flow: open nvim at the repo root, wait for jdtls to report `ServiceReady`, set breakpoints with `<leader>db`, press `<F5>`, and pick the launch.json configuration. Answer any input prompts, and nvim attaches once the JVM is listening on the configured debug port.
+
+| Command | Action |
+|---|---|
+| `:DapRunTask <label>` | Run any task from `.vscode/tasks.json` (Tab completes labels), e.g. `:DapRunTask cleanup` |
+| `:DapStopTasks` | Stop every task started from nvim (e.g. a JVM left suspended after a failed attach) |
 
 ---
 
