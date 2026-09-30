@@ -15,6 +15,10 @@ mason_lspconfig.setup({
 	ensure_installed = { "jdtls", "cucumber_language_server" },
 })
 
+-- jdtls is intentionally excluded from vim.lsp.enable below: it is started per-buffer
+-- by ftplugin/java.lua via nvim-jdtls, which also wires up the 'java' DAP adapter.
+-- Enabling it here too would start a second, debug-less LSP client for java files.
+
 -- Capabilities advertised to the server: merge nvim defaults with what nvim-cmp adds.
 -- cmp_nvim_lsp is lazy-required here so this file can load even before PlugInstall.
 local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -36,4 +40,4 @@ vim.lsp.config("cucumber_language_server", {
 	capabilities = capabilities,
 })
 
-vim.lsp.enable({ "jdtls", "cucumber_language_server" })
+vim.lsp.enable({ "cucumber_language_server" })
