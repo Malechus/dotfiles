@@ -132,6 +132,7 @@ Inside a Telescope window: `<Enter>` opens, `<Esc>` closes, `<Ctrl+/>`  shows av
 | `<leader>rn` | Rename symbol |
 | `<leader>ca` | Code actions |
 | `<leader>f` | Format buffer |
+| `<leader>h` | Show diagnostic message under the cursor |
 | `[d` | Jump to previous diagnostic |
 | `]d` | Jump to next diagnostic |
 

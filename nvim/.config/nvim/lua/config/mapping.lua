@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>f",  vim.lsp.buf.format, opts)       -- format buffer
 
 		-- Diagnostics
+		vim.keymap.set("n", "<leader>h", vim.diagnostic.open_float, opts) -- show diagnostic message
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)  -- previous diagnostic
 		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)  -- next diagnostic
 	end,
