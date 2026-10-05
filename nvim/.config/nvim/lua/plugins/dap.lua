@@ -52,6 +52,37 @@ dap.listeners.before.launch.dapui_config = function() dapui.open() end
 dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
 dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
 
+-- The dap-ui console buffer doesn't follow new output on its own, so jump every window
+-- showing it to the last line whenever the adapter emits output.
+local function scroll_console_to_end()
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local buf = vim.api.nvim_win_get_buf(win)
+		if vim.bo[buf].filetype == "dapui_console" then
+			local last = vim.api.nvim_buf_line_count(buf)
+			pcall(vim.api.nvim_win_set_cursor, win, { last, 0 })
+		end
+	end
+end
+dap.listeners.after.event_output.dapui_console_scroll = function()
+	vim.schedule(scroll_console_to_end)
+end
+
+-- Treat .feature (cucumber) buffers like java: F5 resolves configurations by filetype, and
+-- jdtls replaces dap.configurations.java at runtime, so alias lazily instead of copying.
+setmetatable(dap.configurations, {
+	__index = function(_, ft)
+		if ft == "cucumber" then
+			return rawget(dap.configurations, "java")
+		end
+	end,
+})
+
+-- Same for launch.json entries of type "java", which nvim-dap maps to filetypes.
+local vscode_ext = require("dap.ext.vscode")
+vscode_ext.type_to_filetypes = vim.tbl_extend("force", vscode_ext.type_to_filetypes or {}, {
+	java = { "java", "cucumber" },
+})
+
 -- netcoredbg adapter (installed by mason into its data dir)
 local mason_data = vim.fn.stdpath("data") .. "/mason/packages/netcoredbg"
 dap.adapters.coreclr = {
