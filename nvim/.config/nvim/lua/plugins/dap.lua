@@ -52,47 +52,6 @@ dap.listeners.before.launch.dapui_config = function() dapui.open() end
 dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
 dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
 
--- dap-ui only autoscrolls the console while it is the focused window, and the buffer becomes a
--- terminal (filetype cleared), so match it by name and scroll its windows on every change.
-local function is_console(buf)
-	return vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_name(buf):match("DAP Console$") ~= nil
-end
-
-local attached_consoles = {}
-local function follow_console(buf)
-	if attached_consoles[buf] then
-		return
-	end
-	attached_consoles[buf] = true
-	vim.api.nvim_buf_attach(buf, false, {
-		on_lines = function()
-			vim.schedule(function()
-				if not vim.api.nvim_buf_is_valid(buf) then
-					return
-				end
-				local last = vim.api.nvim_buf_line_count(buf)
-				for _, win in ipairs(vim.fn.win_findbuf(buf)) do
-					-- Leave the focused window alone so scrolling back through output still works
-					if win ~= vim.api.nvim_get_current_win() then
-						pcall(vim.api.nvim_win_set_cursor, win, { last, 0 })
-					end
-				end
-			end)
-		end,
-		on_detach = function()
-			attached_consoles[buf] = nil
-		end,
-	})
-end
-
-vim.api.nvim_create_autocmd({ "BufWinEnter", "TermOpen" }, {
-	callback = function(args)
-		if is_console(args.buf) then
-			follow_console(args.buf)
-		end
-	end,
-})
-
 -- Treat .feature (cucumber) buffers like java: F5 resolves configurations by filetype, and
 -- jdtls replaces dap.configurations.java at runtime, so alias lazily instead of copying.
 setmetatable(dap.configurations, {

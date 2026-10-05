@@ -193,6 +193,19 @@ local function run_in_terminal(label, cmd, cwd, on_line, on_exit)
 		term = true,
 		cwd = cwd,
 		on_stdout = function(_, data)
+			-- Terminal buffers only follow output when the cursor is on the last line, which
+			-- never happens for an unfocused window, so push those windows to the end ourselves.
+			vim.schedule(function()
+				if not vim.api.nvim_buf_is_valid(buf) then
+					return
+				end
+				local last = vim.api.nvim_buf_line_count(buf)
+				for _, win in ipairs(vim.fn.win_findbuf(buf)) do
+					if win ~= vim.api.nvim_get_current_win() then
+						pcall(vim.api.nvim_win_set_cursor, win, { last, 0 })
+					end
+				end
+			end)
 			if not on_line then
 				return
 			end
