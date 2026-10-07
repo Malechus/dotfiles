@@ -68,11 +68,11 @@ vscode_ext.type_to_filetypes = vim.tbl_extend("force", vscode_ext.type_to_filety
 	java = { "java", "cucumber" },
 })
 
--- netcoredbg adapter (installed by mason into its data dir)
-local mason_data = vim.fn.stdpath("data") .. "/mason/packages/netcoredbg"
+-- netcoredbg adapter: prefer mason's bin shim (layout-independent), else fall back to PATH
+local mason_shim = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg"
 dap.adapters.coreclr = {
 	type = "executable",
-	command = mason_data .. "/netcoredbg",
+	command = vim.fn.executable(mason_shim) == 1 and mason_shim or "netcoredbg",
 	args = { "--interpreter=vscode" },
 }
 
