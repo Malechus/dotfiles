@@ -1,0 +1,92 @@
+# deskctl config.
+#
+# Profiles cycle in the order listed, wrapping at the end.
+#
+# Image order is xrandr's connected-output order:
+#   HDMI-0 (horizontal), DP-0 (vertical), DP-2 (horizontal), DP-4 (vertical)
+
+[displays.desk]
+args = [
+    "--output", "HDMI-0", "--primary", "--mode", "1920x1080", "--pos", "1094x1080",
+    "--output", "DP-0", "--mode", "1920x1080", "--rotate", "left", "--pos", "3014x1080",
+    "--output", "DP-2", "--mode", "1920x1080", "--pos", "1094x0",
+    "--output", "DP-4", "--mode", "1920x1080", "--rotate", "right", "--pos", "0x1080",
+    "--output", "DP-1", "--off",
+    "--output", "DP-3", "--off",
+    "--output", "DP-5", "--off",
+]
+
+[[wallpapers.4]]
+name = "anime"
+images = [
+    "/home/malechus/.local/share/wallpapers/horizontal/024.png",
+    "/home/malechus/.local/share/wallpapers/vertical/051.png",
+    "/home/malechus/.local/share/wallpapers/horizontal/018.jpg",
+    "/home/malechus/.local/share/wallpapers/vertical/061.png",
+]
+
+[[wallpapers.4]]
+name = "tech"
+images = [
+    "/home/malechus/.local/share/wallpapers/horizontal/004.png",
+    "/home/malechus/.local/share/wallpapers/vertical/068.png",
+    "/home/malechus/.local/share/wallpapers/horizontal/007.png",
+    "/home/malechus/.local/share/wallpapers/vertical/069.png",
+]
+
+[[wallpapers.4]]
+name = "tech2"
+images = [
+    "/home/malechus/.local/share/wallpapers/horizontal/043.png",
+    "/home/malechus/.local/share/wallpapers/vertical/066.jpg",
+    "/home/malechus/.local/share/wallpapers/horizontal/032.png",
+    "/home/malechus/.local/share/wallpapers/vertical/054.jpg",
+]
+
+[[wallpapers.4]]
+name = "arch"
+images = [
+    "/home/malechus/.local/share/wallpapers/horizontal/011.png",
+    "/home/malechus/.local/share/wallpapers/vertical/054.jpg",
+    "/home/malechus/.local/share/wallpapers/horizontal/003.png",
+    "/home/malechus/.local/share/wallpapers/vertical/063.jpg",
+]
+
+[[wallpapers.4]]
+name = "shadowheart"
+images = [
+    "/home/malechus/.local/share/wallpapers/horizontal/036.jpg",
+    "/home/malechus/.local/share/wallpapers/vertical/048.jpg",
+    "/home/malechus/.local/share/wallpapers/horizontal/035.png",
+    "/home/malechus/.local/share/wallpapers/vertical/047.jpg",
+]
+
+[[wallpapers.4]]
+name = "karlach"
+images = [
+    "/home/malechus/.local/share/wallpapers/horizontal/021.jpg",
+    "/home/malechus/.local/share/wallpapers/vertical/057.jpg",
+    "/home/malechus/.local/share/wallpapers/horizontal/022.png",
+    "/home/malechus/.local/share/wallpapers/vertical/060.jpg",
+]
+
+[[wallpapers.4]]
+name = "space"
+images = [
+    "/home/malechus/.local/share/wallpapers/horizontal/028.jpg",
+    "/home/malechus/.local/share/wallpapers/vertical/054.jpg",
+    "/home/malechus/.local/share/wallpapers/horizontal/026.jpg",
+    "/home/malechus/.local/share/wallpapers/vertical/054.jpg",
+]
+
+[[wallpapers.4]]
+name = "pinup"
+images = [
+    "/home/malechus/.local/share/wallpapers/horizontal/044.png",
+    "/home/malechus/.local/share/wallpapers/vertical/076.png",
+    "/home/malechus/.local/share/wallpapers/horizontal/033.png",
+    "/home/malechus/.local/share/wallpapers/vertical/078.png",
+]
+
+[timer]
+interval = "2h"
