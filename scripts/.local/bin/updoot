@@ -15,6 +15,10 @@ update_ubuntu(){
 	sudo apt update && sudo apt upgrade -y
 }
 
+FSyH=false
+autoSug=false
+zhss=false
+
 echo "Updating dotfiles"
 cd ~/dotfiles 
 git fetch
@@ -25,10 +29,36 @@ cd $ZDOTDIR/plugins/
 for rdir in */; do
 	echo "Updating $rdir"
 	cd $rdir
+	case $rdir in
+		"F-Sy-H")
+			$FSyH=true
+			;;
+		"zsh-autosuggestions")
+			$autoSug=true
+			;;
+		"zsh-history-substring-search")
+			$zhss=true
+			;;
+	esac
 	git fetch
 	git pull
 	cd ..
 done
+
+if ["$FSyH" = false]; then
+	echo "F-S-H not found, fetching."
+	git clone "https://github.com/z-shell/F-Sy-H.git"
+fi
+
+if ["$autoSug" = false]; then
+	echo "autosuggestions not found, fetching."
+	git clone "https://github.com/zsh-users/zsh-autosuggestions"
+fi
+
+if ["$zhss" = false]; then
+	echo "substring search not found, fetching."
+	git clone "https://github.com/zsh-users/zsh-history-substring-search"
+fi
 
 case $OSTYPE in
 	"linux-gnu")
