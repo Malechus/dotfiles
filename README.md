@@ -75,14 +75,10 @@ Wallpapers are stored in `~/.local/share/wallpapers/` via a separate `wallpapers
 | Script | Purpose |
 |---|---|
 | `4.sh` | Configure xrandr for a 4-monitor layout |
-| `bottom.sh` | Configure xrandr for a 3-monitor layout (hostname-gated to `polyphemus`) |
-| `desktop-3m-cm.sh` | Set 3-monitor wallpaper layout |
 | `desktop-4m-cm.sh` | Set 4-monitor wallpaper layout |
-| `pinup-4m-cm.sh` | Set pinup wallpaper preset |
-| `personal.sh` | Run `4.sh` and set 4-monitor wallpapers |
-| `work.sh` | Run `bottom.sh` and set 3-monitor wallpapers |
-| `wallswitcher.sh` | Cycle through named wallpaper presets using `feh`; bound to `Super+Shift+W` |
-| `screenswitcher.sh` | Trigger the change from `bottom.sh` to `4.sh` and back; bound to `Super+Shift+S` |
+| `wallswitcher.sh` | Cycle through named wallpaper presets using `feh` |
+
+The i3 display and wallpaper shortcuts use `deskctl`: display changes also relaunch Polybar so it can adapt to the new monitor layout.
 
 ---
 
@@ -99,6 +95,7 @@ Tiling window manager for X11. The modifier key is `Super` (Windows key).
 | Open terminal | `Super+Enter` |
 | Launch dmenu | `Super+D` |
 | Kill window | `Super+Shift+Q` |
+| Toggle display profile | `Super+Shift+S` |
 | Toggle wallpaper preset | `Super+Shift+W` |
 | Enter resize mode | `Super+R` |
 | Toggle floating | `Super+Shift+Space` |
@@ -347,6 +344,7 @@ This setup is built on the work of many open source authors and projects.
 | [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) | zdharma-continuum (originally z-shell) | BSD |
 | [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search) | zsh-users | BSD |
 | [Nerd Fonts](https://www.nerdfonts.com/) (Hurmit, CaskaydiaCove) | Ryan L McIntyre (ryanoasis) | MIT |
+| [deskctl](https://github.com/Malechus/deskctl) | Malechus | MIT |
 | [Spotify-Player](https://github.com/aome510/spotify-player) | aome510 | MIT |
 | [Neovim](https://neovim.io/) | Neovim contributors | Apache-2.0 |
 | [vim-plug](https://github.com/junegunn/vim-plug) | Junegunn Choi | MIT |
