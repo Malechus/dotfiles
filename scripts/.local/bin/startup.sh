@@ -36,9 +36,6 @@ fi
 git fetch
 git pull
 
-# wallswitcher must be called twice in succession
 cd ~
-wallswitcher.sh
-wallswitcher.sh
-
+deskctl wallpaper apply tech
 # open some software
