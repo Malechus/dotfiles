@@ -30,14 +30,14 @@ for rdir in */; do
 	echo "Updating $rdir"
 	cd $rdir
 	case $rdir in
-		"F-Sy-H")
-			$FSyH=true
+		"F-Sy-H/")
+			FSyH=true
 			;;
-		"zsh-autosuggestions")
-			$autoSug=true
+		"zsh-autosuggestions/")
+			autoSug=true
 			;;
-		"zsh-history-substring-search")
-			$zhss=true
+		"zsh-history-substring-search/")
+			zhss=true
 			;;
 	esac
 	git fetch
@@ -45,17 +45,17 @@ for rdir in */; do
 	cd ..
 done
 
-if ["$FSyH" = false]; then
+if [ "$FSyH" = false ]; then
 	echo "F-S-H not found, fetching."
 	git clone "https://github.com/z-shell/F-Sy-H.git"
 fi
 
-if ["$autoSug" = false]; then
+if [ "$autoSug" = false ]; then
 	echo "autosuggestions not found, fetching."
 	git clone "https://github.com/zsh-users/zsh-autosuggestions"
 fi
 
-if ["$zhss" = false]; then
+if [ "$zhss" = false ]; then
 	echo "substring search not found, fetching."
 	git clone "https://github.com/zsh-users/zsh-history-substring-search"
 fi
@@ -75,5 +75,4 @@ case $OSTYPE in
 		update_mac
 		;;
 esac
-
 
