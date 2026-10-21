@@ -12,7 +12,7 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-	ensure_installed = { "jdtls", "cucumber_language_server" },
+	ensure_installed = { "jdtls", "cucumber_language_server", "rust_analyzer" },
 })
 
 -- jdtls is intentionally excluded from vim.lsp.enable below: it is started per-buffer
@@ -40,4 +40,8 @@ vim.lsp.config("cucumber_language_server", {
 	capabilities = capabilities,
 })
 
-vim.lsp.enable({ "cucumber_language_server" })
+vim.lsp.config("rust_analyzer", {
+	capabilities = capabilities,
+})
+
+vim.lsp.enable({ "cucumber_language_server", "rust_analyzer" })

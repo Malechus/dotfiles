@@ -31,11 +31,13 @@ nvim +PlugInstall +qall
 
 Open nvim after PlugInstall. Mason will automatically download and install:
 - `netcoredbg` — C# debugger
+- `codelldb` — Rust debugger
 - `cucumber-language-server` — Cucumber/Gherkin language server for `.feature` files
+- `rust-analyzer` — Rust language server
 
 The C# language server itself (Roslyn) is installed separately — run `:MasonInstall roslyn` once. It comes from the `Crashdummyy/mason-registry` custom registry (configured in `lua/plugins/lsp.lua`), which tracks the same Roslyn version shipped with VS Code's C# extension.
 
-This requires an internet connection and .NET SDK. Progress is shown in the `:Mason` window.
+This requires an internet connection, .NET SDK for C#, and the Rust toolchain (`rustup`/`cargo`) for Rust projects. Progress is shown in the `:Mason` window.
 
 ### 5. Install build dependencies (if not present)
 
@@ -161,6 +163,19 @@ Completion triggers automatically as you type. When the popup is open:
 
 The DAP UI opens automatically when a debug session starts and closes when it ends.
 
+## Rust Workflow
+
+Open Neovim from the Rust workspace or crate root. Mason installs `rust-analyzer` and enables it for Rust buffers; diagnostics, navigation, completion, and formatting use the existing LSP and `nvim-cmp` setup. The Rust Treesitter parser is also installed automatically.
+
+### Debugging
+
+1. Build the crate with debug symbols: `cargo build`
+2. Press `<F5>` and choose `Launch (codelldb)`.
+3. Enter the executable path when prompted (usually `target/debug/<binary-name>`).
+4. Set breakpoints with `<leader>db`, then use `<F10>` / `<F11>` / `<F12>` to step through code.
+
+The DAP UI opens when debugging starts and displays scopes, the call stack, breakpoints, and the debug console.
+
 ---
 
 ## C# Workflow
@@ -239,6 +254,7 @@ Typical flow: open nvim at the repo root, wait for jdtls to report `ServiceReady
 | mason.nvim | Install and update LSP servers and DAP adapters |
 | mason-lspconfig.nvim | Auto-configure mason-installed LSP servers |
 | cucumber-language-server | Cucumber/Gherkin language server |
+| rust-analyzer | Rust language server |
 | roslyn.nvim | C# language server (Roslyn) client, replaces OmniSharp |
 | nvim-cmp | Completion engine |
 | cmp-nvim-lsp | LSP completions |
@@ -253,3 +269,4 @@ Typical flow: open nvim at the repo root, wait for jdtls to report `ServiceReady
 | nvim-dap-ui | Debugger UI panels |
 | nvim-nio | Async I/O (dap-ui dependency) |
 | mason-nvim-dap.nvim | Auto-install DAP adapters via mason |
+| codelldb | Rust debugger adapter |

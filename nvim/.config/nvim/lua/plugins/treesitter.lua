@@ -1,5 +1,5 @@
 require("nvim-treesitter").setup({
-	ensure_installed = { "c_sharp", "lua", "vim", "vimdoc" },
+	ensure_installed = { "c_sharp", "lua", "rust", "vim", "vimdoc" },
 	sync_install = false,
 	auto_install = false,
 	highlight = {

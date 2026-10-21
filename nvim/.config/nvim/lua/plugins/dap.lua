@@ -3,7 +3,7 @@ local dapui = require("dapui")
 local mason_nvim_dap = require("mason-nvim-dap")
 
 mason_nvim_dap.setup({
-	ensure_installed = { "netcoredbg" },
+	ensure_installed = { "netcoredbg", "codelldb" },
 	automatic_installation = true,
 	handlers = {},
 })
@@ -91,5 +91,33 @@ dap.configurations.cs = {
 		name = "Attach (netcoredbg)",
 		request = "attach",
 		processId = require("dap.utils").pick_process,
+	},
+}
+
+-- codelldb is installed by Mason; the shim keeps this path independent of its
+-- platform-specific package directory layout.
+local codelldb_shim = vim.fn.stdpath("data") .. "/mason/bin/codelldb"
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = vim.fn.executable(codelldb_shim) == 1 and codelldb_shim or "codelldb",
+		args = { "--port", "${port}" },
+	},
+}
+
+dap.configurations.rust = {
+	{
+		name = "Launch (codelldb)",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+		end,
+		cwd = function()
+			return vim.fn.getcwd()
+		end,
+		stopOnEntry = false,
+		args = {},
 	},
 }
