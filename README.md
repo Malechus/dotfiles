@@ -26,7 +26,7 @@ sudo stow icons -t /
 # This installs the conents of ./icons/ into the root directory. Sudo is required to modify /usr/share/pixmaps - use sudo if necessary for the directory you are targeting.
 
 # Install everything
-stow alacritty fastfetch i3 nvim picom rofi x11 zsh copilot spotify-player scripts 
+stow alacritty fastfetch i3 nvim picom rofi tmux x11 zsh copilot spotify-player scripts
 sudo stow icons -t /
 ```
 
@@ -177,6 +177,12 @@ GPU-accelerated terminal. Config is split via `general.import`:
 | `01-window.toml` | 80% opacity, dark theme variant, title "Console" |
 | `02-keybindings.toml` | Custom key bindings |
 | `03-font.toml` | CaskaydiaCove Nerd Font Mono |
+
+---
+
+### Tmux — Terminal Multiplexer
+
+The tmux config at `~/.config/tmux/tmux.conf` automatically renumbers windows when one is closed. Press `r` to reload the config. It configures Neovim as the editor and uses the Catppuccin Macchiato theme.
 
 ---
 
@@ -331,48 +337,49 @@ This setup is built on the work of many open source authors and projects.
 
 | Project | Author(s) | License |
 |---|---|---|
+| [Alacritty](https://github.com/alacritty/alacritty) | Joe Wilm & Alacritty contributors | Apache-2.0 |
+| [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin) | Catppuccin Org | MIT |
+| [catppuccin/nvim](https://github.com/catppuccin/nvim) | Catppuccin Org | MIT |
+| [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) | hrsh7th | MIT |
+| [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) | saadparwaiz1 | Apache-2.0 |
+| [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) | hrsh7th | MIT |
+| [cmp-path](https://github.com/hrsh7th/cmp-path) | hrsh7th | MIT |
+| [deskctl](https://github.com/Malechus/deskctl) | Malechus | MIT |
+| [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | fastfetch-cli contributors | MIT |
 | [feh](https://feh.finalrewind.org/) | Tom Gilbert & contributors | MIT |
+| [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) | zdharma-continuum (originally z-shell) | BSD |
 | [GNU Stow](https://www.gnu.org/software/stow/) | GNU Project | GPL-3.0 |
 | [i3](https://i3wm.org/) | Michael Stapelberg & contributors | BSD |
-| [Picom](https://github.com/yshui/picom) | yshui (fork of compton by chjj) | MIT / Apache-2.0 |
-| [Alacritty](https://github.com/alacritty/alacritty) | Joe Wilm & Alacritty contributors | Apache-2.0 |
-| [Rofi](https://github.com/davatorium/rofi) | Dave Davenport (davatorium) | MIT |
-| [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | fastfetch-cli contributors | MIT |
-| [Yabai](https://github.com/koekeishiya/yabai) | koekeishiya | MIT |
-| [Catppuccin Macchiato](https://github.com/catppuccin/catppuccin) | Catppuccin Org | MIT |
-| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | Eric Freese & zsh-users | MIT |
-| [F-Sy-H](https://github.com/zdharma-continuum/fast-syntax-highlighting) | zdharma-continuum (originally z-shell) | BSD |
-| [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search) | zsh-users | BSD |
-| [Nerd Fonts](https://www.nerdfonts.com/) (Hurmit, CaskaydiaCove) | Ryan L McIntyre (ryanoasis) | MIT |
-| [deskctl](https://github.com/Malechus/deskctl) | Malechus | MIT |
-| [Spotify-Player](https://github.com/aome510/spotify-player) | aome510 | MIT |
-| [Neovim](https://neovim.io/) | Neovim contributors | Apache-2.0 |
-| [vim-plug](https://github.com/junegunn/vim-plug) | Junegunn Choi | MIT |
-| [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | windwp | MIT |
-| [catppuccin/nvim](https://github.com/catppuccin/nvim) | Catppuccin Org | MIT |
-| [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | nvim-tree contributors | MIT |
-| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | Yazdani Kiyan & contributors | GPL-3.0 |
 | [line-numbers.nvim](https://github.com/shrynx/line-numbers.nvim) | shrynx | MIT |
-| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Neovim contributors | Apache-2.0 |
-| [mason.nvim](https://github.com/williamboman/mason.nvim) | William Boman & contributors | Apache-2.0 |
-| [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | William Boman & contributors | Apache-2.0 |
-| [omnisharp-extended-lsp.nvim](https://github.com/Hoffs/omnisharp-extended-lsp.nvim) | Hoffs | MIT |
-| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | hrsh7th | MIT |
-| [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) | hrsh7th | MIT |
-| [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) | hrsh7th | MIT |
-| [cmp-path](https://github.com/hrsh7th/cmp-path) | hrsh7th | MIT |
 | [LuaSnip](https://github.com/L3MON4D3/LuaSnip) | L3MON4D3 | Apache-2.0 |
-| [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip) | saadparwaiz1 | Apache-2.0 |
-| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | TJ DeVries & contributors | MIT |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | TJ DeVries & contributors | MIT |
-| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | nvim-treesitter contributors | Apache-2.0 |
+| [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | William Boman & contributors | Apache-2.0 |
+| [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Jay Babu & contributors | Apache-2.0 |
+| [mason.nvim](https://github.com/williamboman/mason.nvim) | William Boman & contributors | Apache-2.0 |
+| [Neovim](https://neovim.io/) | Neovim contributors | Apache-2.0 |
+| [Nerd Fonts](https://www.nerdfonts.com/) (Hurmit, CaskaydiaCove) | Ryan L McIntyre (ryanoasis) | MIT |
+| [notify-send](https://gitlab.gnome.org/GNOME/libnotify) | Andre Filipe de Assuncao e Brito et. al. | LGPL-2.1-or-later |
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | windwp | MIT |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | hrsh7th | MIT |
 | [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Mathias Fussenegger | GPL-3.0 |
 | [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | rcarriga | MIT |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Neovim contributors | Apache-2.0 |
 | [nvim-nio](https://github.com/nvim-neotest/nvim-nio) | nvim-neotest contributors | MIT |
-| [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Jay Babu & contributors | Apache-2.0 |
-| [notify-send](https://gitlab.gnome.org/GNOME/libnotify) | Andre Filipe de Assuncao e Brito et. al. | LGPL-2.1-or-later |
+| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | Yazdani Kiyan & contributors | GPL-3.0 |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | nvim-treesitter contributors | Apache-2.0 |
+| [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | nvim-tree contributors | MIT |
+| [omnisharp-extended-lsp.nvim](https://github.com/Hoffs/omnisharp-extended-lsp.nvim) | Hoffs | MIT |
+| [Picom](https://github.com/yshui/picom) | yshui (fork of compton by chjj) | MIT / Apache-2.0 |
+| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | TJ DeVries & contributors | MIT |
 | [polybar](https://github.com/polybar/polybar) | Patrick Ziegler, Michael Carlberg | MIT |
 | [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | MeanderingProgrammer et. al. | MIT |
+| [Rofi](https://github.com/davatorium/rofi) | Dave Davenport (davatorium) | MIT |
+| [Spotify-Player](https://github.com/aome510/spotify-player) | aome510 | MIT |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | TJ DeVries & contributors | MIT |
+| [tmux](https://github.com/tmux/tmux) | Nicholas Marriott & contributors | ISC |
+| [vim-plug](https://github.com/junegunn/vim-plug) | Junegunn Choi | MIT |
+| [Yabai](https://github.com/koekeishiya/yabai) | koekeishiya | MIT |
+| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | Eric Freese & zsh-users | MIT |
+| [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search) | zsh-users | BSD |
 
 ---
 
@@ -388,6 +395,7 @@ dotfiles/
 ├── picom/        # Compositor config
 ├── rofi/         # App launcher config
 ├── scripts/      # Shell scripts linked to ~/.local/bin/ (wallpaper switchers, screen layouts)
+├── tmux/         # Tmux terminal multiplexer config
 ├── x11/          # X11 session environment (.xprofile)
 ├── yabai/        # macOS tiling WM config
 └── zsh/          # ZSH shell config + plugins (plugins gitignored)
