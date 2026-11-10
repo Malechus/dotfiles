@@ -372,6 +372,7 @@ This setup is built on the work of many open source authors and projects.
 | [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Jay Babu & contributors | Apache-2.0 |
 | [notify-send](https://gitlab.gnome.org/GNOME/libnotify) | Andre Filipe de Assuncao e Brito et. al. | LGPL-2.1-or-later |
 | [polybar](https://github.com/polybar/polybar) | Patrick Ziegler, Michael Carlberg | MIT |
+| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | MeanderingProgrammer et. al. | MIT |
 
 ---
 
