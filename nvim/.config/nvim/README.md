@@ -81,6 +81,7 @@ nvim/.config/nvim/
         ├── cmp.lua        # completion engine
         ├── telescope.lua  # fuzzy finder
         ├── treesitter.lua # syntax highlighting
+        ├── render-markdown.lua # inline Markdown rendering
         ├── dap.lua        # debugger
         └── dap-vscode-tasks.lua # preLaunchTask/postDebugTask support for launch.json
 ```
@@ -94,6 +95,20 @@ nvim/.config/nvim/
 Open Neovim from a repository containing your Cucumber project. Mason installs and starts `cucumber-language-server` for `.feature` files automatically. It supplies diagnostics, step-definition navigation, hover documentation, and completion through the existing LSP keybindings and `nvim-cmp` integration.
 
 If Mason has not yet installed it, run `:Mason` and wait for `cucumber-language-server` to finish installing, then reopen the `.feature` file.
+
+---
+
+## Markdown Rendering
+
+After updating this config, run `:PlugInstall` and restart Neovim.
+The `markdown` and `markdown_inline` Treesitter parsers install automatically
+(using the build dependencies listed above).
+
+Markdown files render automatically in normal mode, including headings, lists,
+checkboxes, tables, and code blocks. Insert mode shows the raw Markdown for editing;
+the cursor line also reveals its markup in normal mode.
+Use `<leader>md` (`Space`, then `m`, then `d`) in normal mode or
+`:RenderMarkdown toggle` to switch rendering on or off.
 
 ---
 
@@ -265,6 +280,7 @@ Typical flow: open nvim at the repo root, wait for jdtls to report `ServiceReady
 | plenary.nvim | Lua utilities (Telescope dependency) |
 | telescope.nvim | Fuzzy file / grep / buffer picker |
 | nvim-treesitter | AST-based syntax highlighting |
+| render-markdown.nvim | Inline Markdown rendering |
 | nvim-dap | Debug Adapter Protocol client |
 | nvim-dap-ui | Debugger UI panels |
 | nvim-nio | Async I/O (dap-ui dependency) |

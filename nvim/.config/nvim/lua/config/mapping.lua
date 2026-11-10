@@ -6,6 +6,9 @@ end
 -- nvim-tree
 map("n", "<C-o>", ":NvimTreeToggle<CR>") -- open file explorer
 
+-- Markdown
+map("n", "<leader>md", "<Cmd>RenderMarkdown toggle<CR>")
+
 -- Telescope (lazy-required so startup doesn't fail before PlugInstall)
 map("n", "<leader>ff", function() require("telescope.builtin").find_files() end)   -- find files by name
 map("n", "<leader>fg", function() require("telescope.builtin").live_grep() end)    -- grep across project

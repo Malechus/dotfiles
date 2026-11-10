@@ -35,6 +35,7 @@ Plug('nvim-telescope/telescope.nvim')
 
 -- Syntax
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
+Plug('MeanderingProgrammer/render-markdown.nvim')
 
 -- Debugging
 Plug('mfussenegger/nvim-dap')
@@ -58,4 +59,5 @@ require("plugins.lsp")
 require("plugins.cmp")
 require("plugins.telescope")
 require("plugins.treesitter")
+require("plugins.render-markdown")
 require("plugins.dap")

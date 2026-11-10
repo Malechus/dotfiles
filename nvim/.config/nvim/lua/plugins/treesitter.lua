@@ -15,3 +15,5 @@ require("nvim-treesitter").setup({
 	},
 	indent = { enable = true },
 })
+
+require("nvim-treesitter").install({ "markdown", "markdown_inline" })
